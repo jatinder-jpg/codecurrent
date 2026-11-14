@@ -362,6 +362,7 @@ document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>
 /* ===== Lead capture =====
    LEAD_ENDPOINT: paste your Google Apps Script / Formspree / Web3Forms URL here (see LEADS-SETUP.md).
    While it is empty, leads open in the visitor's email app as a fallback. */
+const WEB3FORMS_KEY='705a5f25-1fce-4a27-9b6f-5abe19a2ffa0'; // easiest option: free key from web3forms.com, leads arrive by email
 const LEAD_ENDPOINT='';
 const BUSINESS_EMAIL='er.jatindersingh00@gmail.com';
 const WA='917087705767';
@@ -376,7 +377,11 @@ async function submitLead(form,wrapEl){
   d.source=form.dataset.source;d.page=location.href;d.time=new Date().toISOString();
   ['utm_source','utm_medium','utm_campaign'].forEach(k=>{if(q.get(k))d[k]=q.get(k)});
   track('generate_lead',{source:d.source});
-  if(LEAD_ENDPOINT){
+  if(WEB3FORMS_KEY){
+    try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,access_key:WEB3FORMS_KEY,subject:'New CodeCurrent lead: '+(d.type||d.source),from_name:'CodeCurrent website'})});
+      if(!r.ok)throw 0}catch(e){location.href=`mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent('New lead')}&body=${encodeURIComponent(Object.entries(d).map(([k,v])=>k+': '+v).join('\n'))}`}
+    thanks(wrapEl,d);
+  }else if(LEAD_ENDPOINT){
     try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d)})}catch(e){}
     thanks(wrapEl,d);
   }else{
