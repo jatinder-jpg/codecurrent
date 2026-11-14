@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf0ff"/><stop offset="1" stop-color="#cfe0ff"/></linearGradient>
+<linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14213d"/><stop offset="1" stop-color="#0b1f3a"/></linearGradient>
+<linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbd5e6"/><stop offset="1" stop-color="#9fb0cc"/></linearGradient>
+</defs>
+<rect width="640" height="480" rx="24" fill="url(#bg)"/>
+<circle cx="520" cy="90" r="70" fill="#2f5bff" fill-opacity=".12"/>
+<circle cx="110" cy="400" r="90" fill="#19c7d8" fill-opacity=".14"/>
+<g transform="translate(110 70)">
+<rect x="0" y="0" width="420" height="270" rx="14" fill="#1b2a4a"/>
+<rect x="12" y="12" width="396" height="246" rx="8" fill="url(#scr)"/>
+<circle cx="28" cy="28" r="4.5" fill="#ff5f57"/><circle cx="44" cy="28" r="4.5" fill="#febc2e"/><circle cx="60" cy="28" r="4.5" fill="#28c840"/>
+<g font-family="Menlo,Consolas,monospace" font-size="13">
+<text x="30" y="62" fill="#ff7ad9">const</text><text x="76" y="62" fill="#e8e2ff"> app =</text><text x="132" y="62" fill="#5ce1ff"> build</text><text x="176" y="62" fill="#e8e2ff">({</text>
+<text x="48" y="86" fill="#9aa8d6">type:</text><text x="92" y="86" fill="#ffd84d"> "web + mobile"</text>
+<text x="48" y="110" fill="#9aa8d6">secure:</text><text x="106" y="110" fill="#4ade80"> true</text><text x="140" y="110" fill="#e8e2ff">,</text>
+<text x="48" y="134" fill="#9aa8d6">cloud:</text><text x="98" y="134" fill="#ffd84d"> "AWS"</text>
+<text x="30" y="158" fill="#e8e2ff">});</text>
+<text x="30" y="190" fill="#7d6fb3">// deploy to production</text>
+<text x="30" y="214" fill="#5ce1ff">deploy</text><text x="76" y="214" fill="#e8e2ff">(app);</text>
+<rect x="124" y="202" width="8" height="15" fill="#ffd84d"/>
+</g>
+</g>
+<path d="M60 345H580L555 372Q552 378 545 378H95Q88 378 85 372Z" fill="url(#base)"/>
+<rect x="260" y="345" width="120" height="8" rx="4" fill="#8497b8"/>
+<g transform="translate(470 250)"><rect width="110" height="70" rx="12" fill="#fff" stroke="#d7e1f5"/>
+<rect x="14" y="16" width="50" height="8" rx="4" fill="#2f5bff"/><rect x="14" y="32" width="80" height="6" rx="3" fill="#c5d3f0"/>
+<polyline points="14,58 36,46 54,52 78,38 96,44" fill="none" stroke="#19c7d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

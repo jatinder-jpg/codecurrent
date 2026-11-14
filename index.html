@@ -35,7 +35,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:70px}
 .burger{display:none;background:none;border:0;font-size:1.8rem;cursor:pointer}
 @media(max-width:900px){.links{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;gap:16px;border-bottom:1px solid var(--line)}.links.open{display:flex}.burger{display:block}}
 /* hero */
-.hero{background:radial-gradient(circle at 85% 20%,#1d4ea8 0,transparent 45%),linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:90px 0 80px;position:relative;overflow:hidden}
+.hero{background:url(images/hero-circuit.svg) center/cover no-repeat,radial-gradient(circle at 85% 20%,#1d4ea8 0,transparent 45%),linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:90px 0 80px;position:relative;overflow:hidden}
 .hero .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center}
 @media(max-width:900px){.hero .grid{grid-template-columns:1fr}}
 .eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;color:var(--cyan);margin-bottom:18px}
@@ -93,7 +93,17 @@ section{padding:90px 0}
 /* founding clients */
 .stories{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .story{border-radius:14px;padding:34px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;position:relative;overflow:hidden}
-.story:before{content:attr(data-e);position:absolute;top:14px;right:22px;font-size:4rem;opacity:.35}
+.story{min-height:330px}
+.story img{position:absolute;top:14px;left:14px;right:14px;width:calc(100% - 28px);height:150px;object-fit:cover;border-radius:10px;box-shadow:0 12px 28px -12px rgba(0,0,0,.5)}
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.split img{width:100%;height:auto;border-radius:20px;box-shadow:0 30px 60px -30px rgba(11,31,58,.5)}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+@media(max-width:860px){.split.rev{direction:ltr}}
+.ticks{list-style:none;padding:0;margin:22px 0 28px}
+.ticks li{padding:10px 0 10px 34px;position:relative;color:var(--muted)}
+.ticks li:before{content:"✓";position:absolute;left:0;top:9px;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:.8rem;display:grid;place-items:center}
+.ticks b{color:var(--ink)}
 .st1{background:linear-gradient(140deg,#2f5bff,#0b1f3a)}
 .st2{background:linear-gradient(140deg,#19c7d8,#13305a)}
 .st3{background:linear-gradient(140deg,#7a4dff,#0b1f3a)}
@@ -211,6 +221,17 @@ footer a:hover{color:#fff}
   </div>
 </div></section>
 
+<section style="padding-top:20px"><div class="wrap split">
+  <img class="reveal" src="images/code-laptop.svg" alt="Developer laptop with code and analytics" loading="lazy" width="640" height="480">
+  <div class="reveal">
+    <span class="label">Engineering you can trust</span>
+    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px">Clean code, built to last</h2>
+    <p style="color:var(--muted)">Every product we deliver is written, tested and documented to professional standards, so it's easy to run today and to grow tomorrow.</p>
+    <ul class="ticks"><li><b>Secure by design:</b> security checks at every stage</li><li><b>Tested:</b> automated testing before every release</li><li><b>Yours:</b> full source code and documentation handed over</li></ul>
+    <a href="#contact" class="btn p">Start your project</a>
+  </div>
+</div></section>
+
 <section id="services" class="alt"><div class="wrap">
   <div class="head reveal"><span class="label">Our services</span><h2>End-to-end application development and IT services</h2><p>From a first prototype to a production platform, with one team accountable for the result.</p></div>
   <div class="grid3">
@@ -271,6 +292,16 @@ footer a:hover{color:#fff}
   </div>
 </div></section>
 
+<section style="padding-block:70px"><div class="wrap split rev">
+  <img class="reveal" src="images/cloud-servers.svg" alt="Cloud infrastructure and servers" loading="lazy" width="640" height="480">
+  <div class="reveal">
+    <span class="label">Cloud &amp; infrastructure</span>
+    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px">Reliable, scalable and always on</h2>
+    <p style="color:var(--muted)">We set up cloud hosting, backups and monitoring so your application stays fast, available and secure as your user base grows.</p>
+    <ul class="ticks"><li><b>Cloud hosting</b> on AWS, Google Cloud or Azure</li><li><b>CI/CD pipelines</b> for fast, safe releases</li><li><b>Monitoring &amp; backups</b> so you are never caught off guard</li></ul>
+  </div>
+</div></section>
+
 <section id="platforms" class="band"><div class="wrap">
   <div class="head reveal"><span class="label">Platforms &amp; technology</span><h2>Modern tools, reliable results</h2><p>The technologies we build with. We choose the right stack for your needs, not the other way around.</p></div>
   <div class="chips reveal"><span>React</span><span>Node.js</span><span>Python</span><span>Flutter</span><span>Android</span><span>iOS / Swift</span><span>PHP / Laravel</span><span>WordPress</span><span>MySQL</span><span>MongoDB</span><span>AWS</span><span>Google Cloud</span><span>Microsoft Azure</span><span>Docker</span><span>Firebase</span><span>Figma</span></div>
@@ -279,9 +310,9 @@ footer a:hover{color:#fff}
 <section id="founding"><div class="wrap">
   <div class="head reveal"><span class="label">Founding client program</span><h2>Be one of our first clients</h2><p>CodeCurrent is newly launched. Our first clients get launch pricing, direct founder access and a featured case study. These are product concepts showing what we can build for you.</p></div>
   <div class="stories">
-    <div class="story st1 reveal" data-e="🛍️"><small>Concept · Retail</small><h3>E-commerce platform</h3><p>Online store with payments, inventory sync and order tracking.</p></div>
-    <div class="story st2 reveal" data-e="🏥"><small>Concept · Healthcare</small><h3>Clinic management system</h3><p>Appointments, patient records and billing in one dashboard.</p></div>
-    <div class="story st3 reveal" data-e="🤖"><small>Concept · HR tech</small><h3>AI recruitment assistant</h3><p>Smart candidate matching and automated screening.</p></div>
+    <div class="story st1 reveal"><img src="images/mobile-app.svg" alt="Mobile app dashboard illustration" loading="lazy"><small>Concept · Retail</small><h3>E-commerce platform</h3><p>Online store with payments, inventory sync and order tracking.</p></div>
+    <div class="story st2 reveal"><img src="images/cloud-servers.svg" alt="Cloud and servers illustration" loading="lazy"><small>Concept · Healthcare</small><h3>Clinic management system</h3><p>Appointments, patient records and billing in one dashboard.</p></div>
+    <div class="story st3 reveal"><img src="images/code-laptop.svg" alt="Laptop showing code illustration" loading="lazy"><small>Concept · HR tech</small><h3>AI recruitment assistant</h3><p>Smart candidate matching and automated screening.</p></div>
   </div>
   <div class="reveal" style="margin-top:34px"><a href="#contact" class="btn p">Apply as a founding client</a></div>
 </div></section>
