@@ -425,6 +425,9 @@ img,svg,video{max-width:100%}
 <a class="wa" href="https://wa.me/917087705767" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">💬</a>
 
 <script>
+/* Always open at the top of the page (no remembered scroll position). A link like #contact still jumps to that section. */
+try{history.scrollRestoration='manual'}catch(e){}
+if(!location.hash){window.scrollTo(0,0);window.addEventListener('pageshow',()=>{if(!location.hash)window.scrollTo(0,0)});window.addEventListener('load',()=>{if(!location.hash)window.scrollTo(0,0)})}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.getElementById('y').textContent=new Date().getFullYear();
