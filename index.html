@@ -95,6 +95,18 @@ section{padding:90px 0}
 .story{border-radius:14px;padding:34px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;position:relative;overflow:hidden}
 .story{min-height:330px}
 .story img{position:absolute;top:14px;left:14px;right:14px;width:calc(100% - 28px);height:150px;object-fit:cover;border-radius:10px;box-shadow:0 12px 28px -12px rgba(0,0,0,.5)}
+.tphoto{margin:0 0 36px;border-radius:18px;overflow:hidden;position:relative;box-shadow:0 30px 60px -30px rgba(11,31,58,.55)}
+.tphoto img{display:block;width:100%;max-height:520px;object-fit:cover}
+.tphoto figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 26px 20px;color:#fff;font-weight:600;background:linear-gradient(transparent,rgba(11,31,58,.85))}
+.tgrid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.member{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;text-align:center}
+.member:hover{border-color:var(--blue);box-shadow:0 20px 40px -22px rgba(47,91,255,.45);transform:translateY(-5px)}
+.member .ph{aspect-ratio:1/1;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#fff;font-size:3.4rem;font-weight:800;overflow:hidden}
+.member .ph img{width:100%;height:100%;object-fit:cover}
+.member .mi{padding:20px 20px 24px}
+.member h3{font-size:1.2rem}
+.member b{color:var(--blue);font-size:.88rem;display:block;margin:2px 0 8px}
+.member p{color:var(--muted);font-size:.92rem}
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
 @media(max-width:860px){.split{grid-template-columns:1fr}}
 .split img{width:100%;height:auto;border-radius:20px;box-shadow:0 30px 60px -30px rgba(11,31,58,.5)}
@@ -318,8 +330,9 @@ footer a:hover{color:#fff}
 </div></section>
 
 <section id="about" class="alt"><div class="wrap">
-  <div class="head reveal"><span class="label">About us</span><h2>Founder-led, hands-on engineering</h2><p>You work directly with the people building your product, with no layers in between.</p></div>
-  <div class="team reveal"><div class="av">JS</div><div><h3>Mr J Singh</h3><b>Co-Founder</b><p>Leads CodeCurrent's vision, client relationships and product delivery.</p></div></div>
+  <div class="head reveal"><span class="label">About us</span><h2>Meet the team behind CodeCurrent</h2><p>You work directly with the people building your product, with no layers in between.</p></div>
+  <figure class="tphoto reveal" id="team-photo" hidden><img id="team-photo-img" alt="The CodeCurrent team" loading="lazy"><figcaption>The CodeCurrent team</figcaption></figure>
+  <div class="tgrid" id="team-grid"></div>
 </div></section>
 
 <section id="faq"><div class="wrap">
@@ -385,6 +398,23 @@ document.querySelectorAll('.vbox[data-i]').forEach(b=>{
                     :`<video src="${esc(v.mp4)}" controls autoplay playsinline></video>`};
   b.addEventListener('click',play);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}})});
 document.querySelectorAll('#demo-grid .reveal').forEach(el=>io.observe(el));
+
+/* ===== Team =====
+   To add photos: save them in the images/team folder and set the file names below.
+   Group photo: images/team/team.jpg   |   Each person: photo:'images/team/jsingh.jpg'
+   If a photo file is missing, initials are shown instead. Add more people by copying a line. */
+const TEAM_PHOTO='images/team/team.jpg';
+const TEAM=[
+  {name:'Mr J Singh',role:'Co-Founder',bio:"Leads CodeCurrent's vision, client relationships and product delivery.",photo:'images/team/jsingh.jpg'}
+];
+document.getElementById('team-grid').innerHTML=TEAM.map(m=>{
+  const ini=m.name.replace(/^(Mr|Mrs|Ms|Dr)\.?\s+/i,'').split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  return `<div class="member reveal"><div class="ph" data-ini="${esc(ini)}"><img src="${esc(m.photo||'')}" alt="${esc(m.name)}" loading="lazy"></div><div class="mi"><h3>${esc(m.name)}</h3><b>${esc(m.role)}</b><p>${esc(m.bio)}</p></div></div>`}).join('');
+document.querySelectorAll('.member .ph img').forEach(img=>{
+  const ph=img.parentElement;const fallback=()=>{ph.textContent=ph.dataset.ini};
+  img.addEventListener('error',fallback);if(img.complete&&!img.naturalWidth)fallback()});
+const tp=new Image();tp.onload=()=>{document.getElementById('team-photo-img').src=TEAM_PHOTO;document.getElementById('team-photo').hidden=false};tp.src=TEAM_PHOTO;
+document.querySelectorAll('#team-grid .reveal,#team-photo').forEach(el=>io.observe(el));
 
 /* Instant estimate */
 const fmt=n=>'₹'+(Math.round(n/1000)*1000).toLocaleString('en-IN');
