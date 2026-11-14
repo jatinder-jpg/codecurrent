@@ -107,6 +107,11 @@ section{padding:90px 0}
 .member h3{font-size:1.2rem}
 .member b{color:var(--blue);font-size:.88rem;display:block;margin:2px 0 8px}
 .member p{color:var(--muted);font-size:.92rem}
+.wgal{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.wgal figure{margin:0;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line);transition:.25s}
+.wgal figure:hover{transform:translateY(-5px);box-shadow:0 20px 40px -22px rgba(47,91,255,.45)}
+.wgal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.wgal figcaption{position:absolute;left:14px;bottom:14px;background:#fff;color:var(--navy);font-weight:600;font-size:.82rem;padding:6px 14px;border-radius:99px;box-shadow:0 6px 16px -6px rgba(0,0,0,.35)}
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
 @media(max-width:860px){.split{grid-template-columns:1fr}}
 .split img{width:100%;height:auto;border-radius:20px;box-shadow:0 30px 60px -30px rgba(11,31,58,.5)}
@@ -333,6 +338,13 @@ footer a:hover{color:#fff}
   <div class="head reveal"><span class="label">About us</span><h2>Meet the team behind CodeCurrent</h2><p>You work directly with the people building your product, with no layers in between.</p></div>
   <figure class="tphoto reveal" id="team-photo" hidden><img id="team-photo-img" alt="The CodeCurrent team" loading="lazy"><figcaption>The CodeCurrent team</figcaption></figure>
   <div class="tgrid" id="team-grid"></div>
+  <div class="head reveal" style="margin:60px 0 26px"><span class="label">How we work</span><h2 style="font-size:clamp(1.6rem,3vw,2.2rem)">Engineers, designers and builders at work</h2></div>
+  <div class="wgal">
+    <figure class="reveal"><img src="images/team/work-1.svg" alt="Illustration: developer working at dual monitors, seen from behind" loading="lazy"><figcaption>Development</figcaption></figure>
+    <figure class="reveal"><img src="images/team/work-2.svg" alt="Illustration: designer working on a mobile app interface" loading="lazy"><figcaption>UI/UX design</figcaption></figure>
+    <figure class="reveal"><img src="images/team/work-3.svg" alt="Illustration: engineer monitoring dashboards on three screens" loading="lazy"><figcaption>Cloud &amp; data</figcaption></figure>
+  </div>
+  <p style="color:var(--muted);font-size:.8rem;margin-top:12px">Illustrations for representation only.</p>
 </div></section>
 
 <section id="faq"><div class="wrap">

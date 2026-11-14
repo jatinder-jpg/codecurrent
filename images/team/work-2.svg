@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<defs>
+<linearGradient id="w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f7fb"/><stop offset="1" stop-color="#c3dbf3"/></linearGradient>
+<linearGradient id="dk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8e1d6"/><stop offset="1" stop-color="#cfc6b8"/></linearGradient>
+<linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f5bff"/><stop offset="1" stop-color="#19c7d8"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#w)"/>
+<rect x="30" y="40" width="180" height="140" rx="8" fill="#eaf6ff" stroke="#bcd6f0" stroke-width="4"/><path d="M120 40v140M30 110h180" stroke="#bcd6f0" stroke-width="4"/>
+<circle cx="720" cy="80" r="50" fill="#7a4dff" fill-opacity=".14"/>
+<!-- plant -->
+<g transform="translate(690 270)"><rect x="-22" y="70" width="44" height="40" rx="6" fill="#e9eef7"/><path d="M0 70C-30 40-40 10-20-20 0 10 0 40 0 70Z" fill="#3fbf84"/><path d="M0 70C30 40 40 10 20-20 0 10 0 40 0 70Z" fill="#2ea36e"/><path d="M0 70C-5 30 0 0 0-30 8 0 8 40 0 70Z" fill="#52d39a"/></g>
+<!-- big monitor (design tool UI) -->
+<rect x="220" y="75" width="440" height="250" rx="12" fill="#1d2b4a"/><rect x="232" y="87" width="416" height="226" rx="5" fill="#f4f7fb"/>
+<rect x="232" y="87" width="416" height="26" fill="#e1e8f6"/><circle cx="246" cy="100" r="4" fill="#ff5f57"/><circle cx="260" cy="100" r="4" fill="#febc2e"/><circle cx="274" cy="100" r="4" fill="#28c840"/>
+<rect x="232" y="113" width="64" height="200" fill="#eaf0ff"/><g fill="#b4c6f2"><rect x="242" y="128" width="44" height="7" rx="3"/><rect x="242" y="146" width="36" height="7" rx="3"/><rect x="242" y="164" width="44" height="7" rx="3"/><rect x="242" y="182" width="30" height="7" rx="3"/></g>
+<!-- phone mockup on canvas -->
+<rect x="360" y="124" width="92" height="176" rx="14" fill="#0b1f3a"/><rect x="365" y="130" width="82" height="164" rx="10" fill="#fff"/><rect x="365" y="130" width="82" height="42" fill="url(#hd)"/>
+<rect x="372" y="180" width="30" height="26" rx="5" fill="#eaf0ff"/><rect x="410" y="180" width="30" height="26" rx="5" fill="#e6fbff"/><rect x="372" y="214" width="68" height="40" rx="5" fill="#f1f4fb"/><rect x="372" y="262" width="68" height="16" rx="5" fill="#2f5bff"/>
+<rect x="476" y="132" width="150" height="86" rx="8" fill="#fff" stroke="#d7e1f5"/><rect x="488" y="146" width="70" height="8" rx="4" fill="#2f5bff"/><rect x="488" y="164" width="120" height="6" rx="3" fill="#c5d3f0"/><rect x="488" y="178" width="100" height="6" rx="3" fill="#c5d3f0"/><rect x="488" y="198" width="46" height="12" rx="6" fill="#ffd84d"/>
+<rect x="476" y="230" width="150" height="70" rx="8" fill="#fff" stroke="#d7e1f5"/><polyline points="488,284 520,262 548,272 580,248 612,256" fill="none" stroke="#19c7d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="425" y="325" width="30" height="48" fill="#cfd6e4"/><rect x="385" y="369" width="110" height="10" rx="5" fill="#cfd6e4"/>
+<!-- desk -->
+<rect x="0" y="380" width="800" height="36" fill="url(#dk)"/><rect x="0" y="416" width="800" height="184" fill="#c4b9a8"/>
+<rect x="330" y="392" width="230" height="13" rx="5" fill="#9aa7bf"/><rect x="580" y="388" width="54" height="10" rx="5" fill="#9aa7bf"/>
+<rect x="610" y="386" width="28" height="20" rx="3" fill="#fff"/>
+<!-- person from behind (right side) -->
+<path d="M330 600C330 525 385 478 470 468L640 468C725 478 780 525 780 600Z" fill="#0f766e"/>
+<path d="M505 468Q555 498 605 468L598 508Q555 528 512 508Z" fill="#0b5c56"/>
+<rect x="525" y="428" width="56" height="50" fill="#e0ac84"/>
+<ellipse cx="553" cy="395" rx="62" ry="66" fill="#3b2418"/>
+<circle cx="553" cy="318" r="32" fill="#3b2418"/><circle cx="553" cy="318" r="32" fill="none" stroke="#2a190f" stroke-width="3"/>
+<ellipse cx="495" cy="408" rx="8" ry="13" fill="#e8b78f"/><ellipse cx="611" cy="408" rx="8" ry="13" fill="#e8b78f"/>
+<path d="M500 372Q553 340 606 372" fill="none" stroke="#4d2f20" stroke-width="5" stroke-linecap="round"/>
+<path d="M330 600C330 565 342 545 362 530L362 600Z" fill="#cfd6e4"/><path d="M780 600C780 565 768 545 748 530L748 600Z" fill="#cfd6e4"/>
+</svg>
