@@ -167,6 +167,19 @@ footer a:hover{color:var(--yellow)}
 .why b{display:block;font-size:1.5rem;font-weight:500;letter-spacing:-.03em;margin-bottom:6px}
 .why span{color:var(--muted);font-size:.92rem}
 @media(max-width:800px){.why{grid-template-columns:repeat(2,1fr)}}
+.demos{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vid{border-radius:18px;overflow:hidden;background:var(--soft);border:1px solid var(--line)}
+.vbox{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#5b4dff,#2a1fa8);display:grid;place-items:center;color:#fff;cursor:pointer;overflow:hidden}
+.vbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vbox iframe,.vbox video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.vbox .pb{position:relative;z-index:1;width:68px;height:68px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-size:1.4rem;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:.2s}
+.vbox:hover .pb{transform:scale(1.12)}
+.vbox.soon{cursor:default;text-align:center;font-weight:500}
+.vbox.soon .pb{opacity:.5;margin-bottom:8px}
+.vbox.soon div{position:relative;z-index:1;display:grid;justify-items:center}
+.vid .vt{padding:20px 22px}
+.vid h3{font-size:1.2rem;margin-bottom:6px}
+.vid p{color:var(--muted);font-size:.93rem}
 .reveal{opacity:0;transform:translateY(28px);transition:.8s}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -179,7 +192,7 @@ footer a:hover{color:var(--yellow)}
   <a href="#top" class="logo">CodeCurrent</a>
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
   <div class="links">
-    <a href="#top">Home</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#estimate">Estimate</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+    <a href="#top">Home</a><a href="#services">Services</a><a href="#demos">Demos</a><a href="#projects">Projects</a><a href="#estimate">Estimate</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
     <a href="#contact" class="pillbtn">Get a Quote</a>
   </div>
 </nav></div></header>
@@ -230,6 +243,11 @@ footer a:hover{color:var(--yellow)}
     <div class="card reveal"><div class="ic">🤖</div><h3>AI &amp; Data Solutions</h3><p>Chatbots, analytics dashboards and automation that save hours.</p></div>
     <div class="card reveal"><div class="ic">🛡️</div><h3>IT Support &amp; Security</h3><p>Maintenance, backups, security audits and 24/7 technical support.</p></div>
   </div>
+</div></section>
+
+<section id="demos" style="background:var(--soft)"><div class="wrap">
+  <div class="sec-head reveal"><div><span class="tag">/ Watch &amp; learn</span><h2>See our software <span class="ac">in action</span></h2></div><p>Short demo videos of what we build and how we work.</p></div>
+  <div class="demos" id="demo-grid"></div>
 </div></section>
 
 <section id="projects" class="dark"><div class="wrap">
@@ -403,6 +421,31 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 document.querySelectorAll('[data-open-modal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openModal()}));
 setTimeout(()=>{if(!seen())openModal()},25000);
 document.addEventListener('mouseout',e=>{if(e.clientY<=0&&!seen())openModal()});
+
+/* ===== Demo videos =====
+   Add your videos here. Use ONE of:
+   yt:  the YouTube video ID (the part after v= in the link), or
+   mp4: a file name uploaded next to index.html (keep under ~50 MB), e.g. 'demo1.mp4'
+   Leave both empty to show "coming soon". */
+const DEMOS=[
+  {title:'Company overview',desc:'Who we are and how we build your product.',yt:'',mp4:''},
+  {title:'Business software demo',desc:'Billing, inventory and reports in one dashboard.',yt:'',mp4:''},
+  {title:'Mobile app walkthrough',desc:'A quick tour of a custom mobile app.',yt:'',mp4:''}
+];
+const esc=s=>String(s).replace(/[<>&"]/g,'');
+document.getElementById('demo-grid').innerHTML=DEMOS.map((v,i)=>{
+  const has=v.yt||v.mp4;
+  const bg=v.yt?`<img loading="lazy" alt="" src="https://i.ytimg.com/vi/${esc(v.yt)}/hqdefault.jpg">`:'';
+  const box=has?`<div class="vbox" data-i="${i}" role="button" tabindex="0" aria-label="Play ${esc(v.title)}">${bg}<span class="pb">▶</span></div>`
+               :`<div class="vbox soon"><div><span class="pb">▶</span>Demo video coming soon</div></div>`;
+  return `<div class="vid reveal">${box}<div class="vt"><h3>${esc(v.title)}</h3><p>${esc(v.desc)}</p></div></div>`}).join('');
+document.querySelectorAll('.vbox[data-i]').forEach(b=>{
+  const play=()=>{const v=DEMOS[b.dataset.i];
+    b.innerHTML=v.yt?`<iframe src="https://www.youtube-nocookie.com/embed/${esc(v.yt)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(v.title)}"></iframe>`
+                    :`<video src="${esc(v.mp4)}" controls autoplay playsinline></video>`;
+    track('play_demo',{title:v.title})};
+  b.addEventListener('click',play);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}})});
+document.querySelectorAll('#demo-grid .reveal').forEach(el=>io.observe(el));
 
 /* ===== Instant estimate calculator ===== */
 const inr=n=>'₹'+Math.round(n/1000)*1000;
