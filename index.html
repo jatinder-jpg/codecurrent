@@ -163,7 +163,7 @@ footer a:hover{color:#fff}
   <a href="#top" class="logo">Code<b>Current</b></a>
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
   <div class="links">
-    <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#approach">Approach</a><a href="#platforms">Platforms</a><a href="#about">About</a><a href="#faq">FAQ</a>
+    <a href="#services">Services</a><a href="#estimate">Plan project</a><a href="#approach">Approach</a><a href="#platforms">Platforms</a><a href="#about">About</a><a href="#faq">FAQ</a>
     <a href="#contact" class="btn p sm">Talk to an expert</a>
   </div>
 </nav></div></header>
@@ -173,7 +173,7 @@ footer a:hover{color:#fff}
   <div>
     <span class="eyebrow">WHAT WE DO</span>
     <h1>Build secure, scalable applications — faster</h1>
-    <p>CodeCurrent designs, develops and supports custom web apps, mobile apps and cloud platforms. We combine modern engineering, DevOps and AI to take your idea from concept to launch with predictable delivery and fixed pricing.</p>
+    <p>CodeCurrent designs, develops and supports custom web apps, mobile apps and cloud platforms. We combine modern engineering, DevOps and AI to take your idea from concept to launch with predictable delivery and a custom quote.</p>
     <div class="cta"><a href="#contact" class="btn p">Get a free consultation</a><a href="#services" class="btn o">Explore services</a></div>
   </div>
   <div class="pipe" aria-hidden="true">
@@ -186,12 +186,12 @@ footer a:hover{color:#fff}
   </div>
 </div></section>
 
-<div class="jump"><div class="wrap"><span>Jump to…</span><a href="#why">Why us</a><a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#approach">Approach</a><a href="#platforms">Platforms</a><a href="#founding">Founding clients</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></div>
+<div class="jump"><div class="wrap"><span>Jump to…</span><a href="#why">Why us</a><a href="#services">Services</a><a href="#estimate">Plan project</a><a href="#approach">Approach</a><a href="#platforms">Platforms</a><a href="#founding">Founding clients</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></div>
 
 <section id="why"><div class="wrap">
   <div class="head reveal"><span class="label">Why work with us</span><h2>A development partner built around your outcomes</h2></div>
   <div class="three why">
-    <div class="it reveal"><h3>Predictable delivery</h3><p>Clear scope, fixed pricing and regular demos, so you always know what you get and when.</p></div>
+    <div class="it reveal"><h3>Predictable delivery</h3><p>Clear scope, a custom quote and regular demos, so you always know what you get and when.</p></div>
     <div class="it reveal"><h3>Lower risk</h3><p>Security, testing and code review are built into every stage. You own the full source code.</p></div>
     <div class="it reveal"><h3>Modern with confidence</h3><p>We build on proven, current technology and plan for growth, so your product scales with your business.</p></div>
   </div>
@@ -210,7 +210,7 @@ footer a:hover{color:#fff}
 </div></section>
 
 <section id="estimate"><div class="wrap">
-  <div class="head reveal"><span class="label">Instant estimate</span><h2>What will your project cost?</h2><p>Pick what you need and get a rough price range in seconds. The final fixed quote comes after a free consultation.</p></div>
+  <div class="head reveal"><span class="label">Plan your project</span><h2>Tell us what you need. We'll quote it.</h2><p>Every project is different, so every quote is custom. Choose what you need below and we'll prepare a tailored proposal after a free consultation.</p></div>
   <div class="est reveal">
     <div class="box">
       <h3>1. What are you building?</h3>
@@ -232,10 +232,10 @@ footer a:hover{color:#fff}
       </div>
     </div>
     <div class="box result">
-      <small>ESTIMATED RANGE</small>
-      <div class="big" id="est-out">₹0</div>
-      <p>A rough guide only, not a final quote.</p>
-      <a href="#contact" class="btn p" id="est-go">Get my exact quote</a>
+      <small>YOUR PROJECT</small>
+      <div class="big" id="est-out">Business website</div>
+      <p id="est-sub">Custom quote, tailored to your needs.</p>
+      <a href="#contact" class="btn p" id="est-go">Get my custom quote</a>
       <a href="#" class="btn o" id="est-wa" target="_blank" rel="noopener">Send on WhatsApp</a>
     </div>
   </div>
@@ -285,7 +285,7 @@ footer a:hover{color:#fff}
   <div>
     <span class="label" style="color:var(--cyan)">Contact us</span>
     <h2>Tell us about your project</h2>
-    <p>Book a free 20-minute consultation. We reply within 24 hours with next steps and a fixed-price quote.</p>
+    <p>Book a free 20-minute consultation. We reply within 24 hours with next steps and a custom quote.</p>
     <div class="info">
       <a href="tel:+917087705767"><small>Call</small>+91 70877 05767</a>
       <a href="https://wa.me/917087705767" target="_blank" rel="noopener"><small>WhatsApp</small>+91 70877 05767</a>
@@ -322,9 +322,9 @@ function calc(){
   const t=document.querySelector('#o-type input:checked').value.split('|');
   let base=+t[1];const names=[t[0]];
   document.querySelectorAll('#o-ext input:checked').forEach(c=>{const [n,p]=c.value.split('|');base+=+p;names.push(n)});
-  const lo=fmt(base*.9),hi=fmt(base*1.3);
-  document.getElementById('est-out').textContent=lo+' – '+hi;
-  const txt=`Hi CodeCurrent, I'd like a quote for: ${names.join(', ')}. Estimate shown: ${lo} – ${hi}.`;
+  document.getElementById('est-out').textContent=names[0];
+  document.getElementById('est-sub').textContent=names.length>1?'+ '+names.slice(1).join(', '):'Add features on the left. Custom quote, tailored to your needs.';
+  const txt=`Hi CodeCurrent, I'd like a custom quote for: ${names.join(', ')}.`;
   document.getElementById('est-wa').href='https://wa.me/917087705767?text='+encodeURIComponent(txt);
   return {names,txt};
 }
