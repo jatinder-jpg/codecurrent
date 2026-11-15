@@ -497,11 +497,203 @@ document.getElementById('f').onsubmit=async e=>{
   if(d.website)return;
   d.source=f.dataset.source;d.page=location.href;d.time=new Date().toISOString();
   let sent=false;
-  try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,access_key:WEB3FORMS_KEY,subject:'New CodeCurrent lead: '+d.type,from_name:'CodeCurrent website'})});sent=r.ok}catch(_){}
+  if(window.CB_PREVIEW){sent=true;window.CB&&CB.simulate(d)}   /* preview mode: nothing is really sent */
+  else{try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,access_key:WEB3FORMS_KEY,subject:'New CodeCurrent lead: '+d.type,from_name:'CodeCurrent website'})});sent=r.ok}catch(_){}
+    if(window.CB)CB.notify(d)}
   const wa=`https://wa.me/917087705767?text=${encodeURIComponent('Hi CodeCurrent, I am '+d.name+'. '+d.msg)}`;
   f.innerHTML=`<div class="ok"><h3>Thank you, ${esc(d.name)}!</h3><p>We'll contact you within 24 hours. For a faster reply, message us on WhatsApp.</p><a class="btn p" target="_blank" rel="noopener" href="${wa}">Chat on WhatsApp</a></div>`;
   if(!sent)location.href=`mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent('New lead: '+d.type)}&body=${encodeURIComponent(Object.entries(d).filter(([k])=>k!=='website').map(([k,v])=>k+': '+v).join('\n'))}`;
 };
+</script>
+
+<!-- ============ CodeCurrent chat assistant (preview build) ============ -->
+<style>
+.cb-fab{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border:0;border-radius:99px;padding:14px 20px;font:600 .95rem Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 32px -10px rgba(47,91,255,.7);transition:.2s}
+.cb-fab:hover{transform:translateY(-3px)}
+.cb-fab .dot{width:10px;height:10px;border-radius:50%;background:#4ade80;animation:cbp 2s infinite}
+@keyframes cbp{0%{box-shadow:0 0 0 0 rgba(74,222,128,.7)}70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.cb-panel{position:fixed;left:18px;bottom:84px;z-index:71;width:380px;max-width:calc(100vw - 24px);height:580px;max-height:calc(100vh - 110px);background:#fff;border-radius:18px;box-shadow:0 30px 70px -20px rgba(11,31,58,.55);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);font-family:Inter,system-ui,sans-serif}
+.cb-panel.open{display:flex}
+.cb-head{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.cb-av{width:40px;height:40px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:800;flex:none}
+.cb-head b{display:block;font-size:.98rem}.cb-head small{color:#9fb3d3;font-size:.76rem}
+.cb-x{margin-left:auto;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1}
+.cb-body{flex:1;overflow-y:auto;padding:16px;background:var(--soft);display:flex;flex-direction:column;gap:10px}
+.cb-m{max-width:88%;padding:10px 14px;border-radius:14px;font-size:.92rem;line-height:1.5;animation:cbi .25s}
+@keyframes cbi{from{opacity:0;transform:translateY(8px)}}
+.cb-m.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.cb-m.me{background:var(--blue);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.cb-m.typing span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9aa8c4;margin-right:4px;animation:cbt 1s infinite}
+.cb-m.typing span:nth-child(2){animation-delay:.15s}.cb-m.typing span:nth-child(3){animation-delay:.3s}
+@keyframes cbt{50%{transform:translateY(-4px);opacity:.5}}
+.cb-m.demo{padding:10px;width:88%}
+.cb-m.demo img{width:100%;border-radius:10px;display:block}
+.cb-bar{height:4px;background:#e3e8f0;border-radius:2px;margin:10px 0 8px;overflow:hidden}
+.cb-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .6s}
+.cb-cap{font-weight:600;font-size:.88rem;color:var(--navy);min-height:1.4em}
+.cb-opts{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start;max-width:96%}
+.cb-opts button,.cb-link{border:1.5px solid var(--blue);background:#fff;color:var(--blue);border-radius:99px;padding:8px 14px;font:600 .84rem Inter,system-ui,sans-serif;cursor:pointer;transition:.15s;text-decoration:none;display:inline-block}
+.cb-opts button:hover,.cb-link:hover{background:var(--blue);color:#fff}
+.cb-link.cb-wa{background:#25d366;border-color:#25d366;color:#fff;margin-top:8px}
+.cb-sys{align-self:stretch;background:#fff8e1;border:1px dashed #f0b429;border-radius:10px;padding:10px 12px;font-size:.78rem;color:#6b4e00}
+.cb-sys pre{white-space:pre-wrap;margin:6px 0 0;font:inherit;background:#fff;padding:8px;border-radius:6px;color:#333}
+.cb-in{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}
+.cb-in input{flex:1;padding:11px 14px;border:1px solid var(--line);border-radius:99px;font:inherit;font-size:.92rem}
+.cb-in button{background:var(--blue);color:#fff;border:0;border-radius:99px;padding:0 18px;font-weight:700;cursor:pointer}
+.cb-note{position:fixed;left:18px;bottom:150px;z-index:69;background:var(--navy);color:#fff;font-size:.78rem;padding:6px 12px;border-radius:8px;display:none}
+.cb-toast{position:fixed;right:18px;top:100px;z-index:90;max-width:340px;background:#fff8e1;border:1px dashed #f0b429;color:#6b4e00;border-radius:12px;padding:14px;font-size:.8rem;box-shadow:0 14px 40px -12px rgba(0,0,0,.4);display:none}
+.cb-toast pre{white-space:pre-wrap;font:inherit;background:#fff;padding:8px;border-radius:6px;margin-top:6px;color:#333}
+@media(max-width:600px){.cb-panel{left:8px;right:8px;width:auto;max-width:none;bottom:76px;height:calc(100vh - 96px);max-height:none}.cb-fab{left:14px;bottom:14px;padding:12px 16px}}
+</style>
+<button class="cb-fab" id="cb-fab" aria-label="Chat with CodeCurrent assistant"><span class="dot"></span>Chat with us</button>
+<div class="cb-panel" id="cb-panel" role="dialog" aria-label="CodeCurrent chat assistant">
+  <div class="cb-head"><div class="cb-av">CC</div><div><b>CodeCurrent Assistant</b><small>● Online · replies instantly</small></div><button class="cb-x" id="cb-x" aria-label="Close chat">×</button></div>
+  <div class="cb-body" id="cb-body" aria-live="polite"></div>
+  <form class="cb-in" id="cb-form"><input id="cb-input" placeholder="Type here…" autocomplete="off" aria-label="Your message"><button type="submit">Send</button></form>
+</div>
+<div class="cb-toast" id="cb-toast"></div>
+<script>
+(()=>{
+/* ---------- settings ---------- */
+const WA='917087705767';
+const NOTIFY_URL='';            // your Cloudflare Worker URL (see automation/SETUP.md). Empty = no WhatsApp/Telegram alert yet.
+const KEY='705a5f25-1fce-4a27-9b6f-5abe19a2ffa0';   // Web3Forms key (email alerts)
+const PREVIEW=['localhost','127.0.0.1'].includes(location.hostname)&&!/[?&]live=1/.test(location.search);
+window.CB_PREVIEW=PREVIEW;
+
+/* ---------- the limited answers the bot knows ---------- */
+const S={
+ web:{icon:'🌐',name:'Website',img:'images/code-laptop.svg',
+  intro:'We build fast, secure, mobile-friendly websites: business sites, portals and online stores.',
+  inc:'Custom design, mobile-friendly pages, contact form &amp; WhatsApp button, SEO basics, admin panel if needed, and hosting setup.',
+  time:'A business website usually takes 1–3 weeks. An online store takes 3–6 weeks.',
+  steps:['1 · Choose a modern design','2 · Add your content &amp; products','3 · Connect contact form &amp; WhatsApp','4 · Launch on your own domain']},
+ app:{icon:'📱',name:'Mobile app',img:'images/mobile-app.svg',
+  intro:'We build Android and iOS apps with smooth design, login, notifications and payments.',
+  inc:'App design, Android and iOS builds, user login, push notifications, payments, admin dashboard and store publishing help.',
+  time:'Most apps take 6–16 weeks, depending on the features you need.',
+  steps:['1 · Wireframes &amp; clickable prototype','2 · Design every screen','3 · Build &amp; test on real phones','4 · Publish to Play Store / App Store']},
+ soft:{icon:'⚙️',name:'Custom software',img:'images/cloud-servers.svg',
+  intro:'We build software around your workflow: billing, CRM, inventory, HR, school or clinic management.',
+  inc:'Requirement mapping, custom modules, reports and dashboards, user roles, cloud hosting, training and support.',
+  time:'Typically 6–16 weeks, delivered in demo-ready stages so you see progress early.',
+  steps:['1 · Map your business process','2 · Build the core modules first','3 · Test with your team','4 · Deploy to the cloud &amp; train staff']},
+ ai:{icon:'🤖',name:'AI &amp; automation',img:'images/code-laptop.svg',
+  intro:'We add chatbots, document processing, smart reports and workflow automation to your business.',
+  inc:'Chatbots for WhatsApp/Telegram/web, automated reports, document reading, lead handling and integrations with your tools.',
+  time:'Simple automations take 1–3 weeks. Larger AI projects take 4–12 weeks.',
+  steps:['1 · Find tasks worth automating','2 · Build &amp; connect a pilot','3 · Measure the time saved','4 · Roll out to your whole team']}
+};
+const PRICE='Every project is different, so every quote is <b>custom</b>. Tell us your idea and our team will send a tailored proposal after a free consultation. There is no obligation.';
+
+/* ---------- tiny helpers ---------- */
+const $=id=>document.getElementById(id), body=$('cb-body'), sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+let input=null, started=false, optsEl=null, lead={};
+const down=()=>{body.scrollTop=body.scrollHeight};
+function add(cls,html){const d=document.createElement('div');d.className='cb-m '+cls;d.innerHTML=html;body.appendChild(d);down();return d}
+async function say(html,ms=550){const t=add('bot typing','<span></span><span></span><span></span>');down();await sleep(ms);t.className='cb-m bot';t.innerHTML=html;down()}
+function clearOpts(){if(optsEl){optsEl.remove();optsEl=null}}
+function opts(list){clearOpts();const d=document.createElement('div');d.className='cb-opts';
+  list.forEach(([label,fn])=>{const b=document.createElement('button');b.type='button';b.innerHTML=label;
+    b.onclick=()=>{clearOpts();add('me',b.textContent);fn()};d.appendChild(b)});
+  body.appendChild(d);optsEl=d;down()}
+function ask(fn){input=fn;$('cb-input').focus()}
+
+/* ---------- conversation ---------- */
+async function menu(first){
+  if(first)await say('Hi 👋 I\'m the <b>CodeCurrent assistant</b>. I can answer quick questions and set up a <b>free consultation</b>.');
+  await say('What do you need help with?');
+  opts([['🌐 Website',()=>service('web')],['📱 Mobile app',()=>service('app')],['⚙️ Custom software',()=>service('soft')],['🤖 AI &amp; automation',()=>service('ai')],['💬 Talk to a human',human]]);
+}
+async function service(k){
+  await say(`${S[k].icon} <b>${S[k].name}</b><br>${S[k].intro}`);
+  await say('What would you like to know?',350);
+  opts([['📋 What\'s included?',()=>answer(k,'inc')],['⏱ How long?',()=>answer(k,'time')],['💰 Pricing',()=>answer(k,'price')],['▶ See a demo',()=>demo(k)],['✅ Get a free quote',()=>quote(k)],['← Main menu',()=>menu()]]);
+}
+async function answer(k,w){
+  await say(w==='price'?PRICE:S[k][w]);
+  opts([['▶ See a demo',()=>demo(k)],['✅ Get a free quote',()=>quote(k)],['More questions',()=>service(k)],['← Main menu',()=>menu()]]);
+}
+async function demo(k){
+  await say(`▶ <b>${S[k].name} demo</b>: here is how we take you from idea to launch.`,450);
+  const c=add('bot demo',`<img src="${S[k].img}" alt="${esc(S[k].name)} demo illustration"><div class="cb-bar"><i></i></div><div class="cb-cap"></div>`);
+  const cap=c.querySelector('.cb-cap'),bar=c.querySelector('i');
+  for(let i=0;i<S[k].steps.length;i++){cap.innerHTML=S[k].steps[i];bar.style.width=((i+1)/S[k].steps.length*100)+'%';down();await sleep(1500)}
+  await say('That is our process in a nutshell. Want a demo built around <i>your</i> idea?');
+  opts([['✅ Yes, get a free quote',()=>quote(k)],['🎬 Watch demo videos',()=>{toggle(false);location.hash='#demos'}],['← Main menu',()=>menu()]]);
+}
+async function human(){
+  await say('Happy to connect you with our team 🙌<br>Message us directly:');
+  add('bot',`<a class="cb-link cb-wa" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent('Hi CodeCurrent, I need help with a project.')}">💬 Chat on WhatsApp</a><br><br>📞 <a href="tel:+917087705767">+91 70877 05767</a><br>✉️ <a href="mailto:er.jatindersingh00@gmail.com">er.jatindersingh00@gmail.com</a>`);
+  opts([['✅ Leave my details instead',()=>quote()],['← Main menu',()=>menu()]]);
+}
+async function quote(k){
+  lead={type:k?S[k].name.replace(/&amp;/g,'&'):'General enquiry'};
+  await say('Great! A few quick details so our team can reach you.<br><b>What\'s your name?</b>');
+  ask(async v=>{
+    if(v.trim().length<2){await say('Please type your name.');return false}
+    lead.name=v.trim();
+    await say(`Nice to meet you, ${esc(lead.name)}! <b>What\'s your WhatsApp / phone number?</b>`);
+    ask(async p=>{
+      const n=p.replace(/\D/g,'');
+      if(n.length<10||n.length>13){await say('Please enter a valid 10-digit mobile number.');return false}
+      lead.phone=p.trim();
+      await say('Last one: tell us briefly what you want to build, or type <i>skip</i>.');
+      ask(async m=>{lead.msg=/^skip$/i.test(m.trim())?'':m.trim();await finish();return true});
+      return true});
+    return true});
+}
+async function finish(){
+  const d={name:lead.name,phone:lead.phone,msg:lead.msg||'',type:lead.type,source:'chatbot',page:location.href,time:new Date().toISOString()};
+  await say('Saving your details…',500);
+  await send(d);
+  await say(`✅ Thank you, ${esc(d.name)}! Our team will contact you within 24 hours. For the fastest reply, message us on WhatsApp:`);
+  add('bot',`<a class="cb-link cb-wa" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(`Hi CodeCurrent, I am ${d.name}. I'm interested in: ${d.type}. ${d.msg}`)}">💬 Continue on WhatsApp</a>`);
+  opts([['← Main menu',()=>menu()]]);
+}
+
+/* ---------- free-typing: map keywords to the same limited answers ---------- */
+function route(t){const s=t.toLowerCase();
+  if(/price|cost|how much|rate|quote|budget|charge/.test(s))return async()=>{await say(PRICE);opts([['✅ Get a free quote',()=>quote()],['← Main menu',()=>menu()]])};
+  if(/web|site|store|shop|ecommerce/.test(s))return()=>service('web');
+  if(/\bapps?\b|android|\bios\b|mobile/.test(s))return()=>service('app');
+  if(/soft|erp|crm|billing|inventory|system/.test(s))return()=>service('soft');
+  if(/\bai\b|chatbot|bot\b|automat/.test(s))return()=>service('ai');
+  if(/human|call|talk|person|whatsapp|contact|phone/.test(s))return human;
+  return null}
+$('cb-form').onsubmit=async e=>{
+  e.preventDefault();const t=$('cb-input').value.trim();if(!t)return;$('cb-input').value='';
+  add('me',esc(t));clearOpts();
+  if(input){const fn=input;input=null;const ok=await fn(t);if(ok===false)input=fn;return}
+  const r=route(t);
+  if(r)r();else{await say('I can help with the topics below. For anything else, our team will gladly help personally.');menu()}
+};
+
+/* ---------- sending leads to you ---------- */
+function alertText(d){const n=(d.phone||'').replace(/\D/g,'');return `🔔 New lead — CodeCurrent\nName: ${d.name||'-'}\nPhone: ${d.phone||'-'}\nNeed: ${d.type||'-'}\nDetails: ${d.msg||'-'}\nSource: ${d.source||'-'}\nReply: https://wa.me/${n.length===10?'91'+n:n}`}
+function simulate(d,quiet){
+  const t=alertText(d);console.log('[PREVIEW] lead alert that would be sent:\n'+t);
+  if(quiet)return t;
+  const el=$('cb-toast');el.innerHTML=`<b>PREVIEW MODE: nothing was really sent.</b><br>On the live site this lead would be emailed to you and sent to your WhatsApp / Telegram as:<pre>${esc(t)}</pre>`;
+  el.style.display='block';clearTimeout(el._t);el._t=setTimeout(()=>el.style.display='none',14000);
+  return t}
+async function notify(d){
+  if(!NOTIFY_URL)return;
+  try{await fetch(NOTIFY_URL.replace(/\/$/,'')+'/lead',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({...d,text:alertText(d)})})}catch(e){}}
+async function send(d){
+  if(PREVIEW){const t=simulate(d,true);add('cb-sys',`<b>PREVIEW MODE: nothing was really sent.</b><br>On the live site I would email you and send this to your WhatsApp / Telegram:<pre>${esc(t)}</pre>`);return}
+  try{await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,access_key:KEY,subject:'New CodeCurrent chatbot lead: '+d.type,from_name:'CodeCurrent chatbot'})})}catch(e){}
+  await notify(d)}
+window.CB={simulate,notify};
+
+/* ---------- open / close ---------- */
+function toggle(open){$('cb-panel').classList.toggle('open',open);if(open&&!started){started=true;menu(true)}}
+$('cb-fab').onclick=()=>toggle(!$('cb-panel').classList.contains('open'));
+$('cb-x').onclick=()=>toggle(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')toggle(false)});
+if(/[?&]chat=1/.test(location.search))toggle(true);   // handy for testing: open with ?chat=1
+})();
 </script>
 </body>
 </html>
