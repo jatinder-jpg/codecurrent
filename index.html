@@ -508,11 +508,12 @@ document.getElementById('f').onsubmit=async e=>{
 
 <!-- ============ CodeCurrent chat assistant (preview build) ============ -->
 <style>
-.cb-fab{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border:0;border-radius:99px;padding:9px 15px;font:600 .8rem Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 32px -10px rgba(47,91,255,.7);transition:.2s}
+.cb-fab{position:fixed;left:20px;bottom:23px;z-index:70;display:flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border:0;border-radius:99px;padding:9px 15px;font:600 .8rem Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 32px -10px rgba(47,91,255,.7);transition:.2s}
 .cb-fab:hover{transform:translateY(-3px)}
+.cb-ic{display:none}
 .cb-fab .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:cbp 2s infinite}
 @keyframes cbp{0%{box-shadow:0 0 0 0 rgba(74,222,128,.7)}70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
-.cb-panel{position:fixed;left:18px;bottom:68px;z-index:71;width:380px;max-width:calc(100vw - 24px);height:580px;max-height:calc(100vh - 110px);background:#fff;border-radius:18px;box-shadow:0 30px 70px -20px rgba(11,31,58,.55);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);font-family:Inter,system-ui,sans-serif}
+.cb-panel{position:fixed;left:20px;bottom:68px;z-index:71;width:380px;max-width:calc(100vw - 24px);height:580px;max-height:calc(100vh - 110px);background:#fff;border-radius:18px;box-shadow:0 30px 70px -20px rgba(11,31,58,.55);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);font-family:Inter,system-ui,sans-serif}
 .cb-panel.open{display:flex}
 .cb-head{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
 .cb-av{width:40px;height:40px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:800;flex:none}
@@ -543,9 +544,9 @@ document.getElementById('f').onsubmit=async e=>{
 .cb-note{position:fixed;left:18px;bottom:150px;z-index:69;background:var(--navy);color:#fff;font-size:.78rem;padding:6px 12px;border-radius:8px;display:none}
 .cb-toast{position:fixed;right:18px;top:100px;z-index:90;max-width:340px;background:#fff8e1;border:1px dashed #f0b429;color:#6b4e00;border-radius:12px;padding:14px;font-size:.8rem;box-shadow:0 14px 40px -12px rgba(0,0,0,.4);display:none}
 .cb-toast pre{white-space:pre-wrap;font:inherit;background:#fff;padding:8px;border-radius:6px;margin-top:6px;color:#333}
-@media(max-width:600px){.cb-panel{left:8px;right:8px;width:auto;max-width:none;bottom:76px;height:calc(100vh - 96px);max-height:none}.cb-fab{left:14px;bottom:14px;padding:8px 13px;font-size:.78rem}}
+@media(max-width:600px){.cb-panel{left:8px;right:8px;width:auto;max-width:none;bottom:72px;height:calc(100vh - 96px);max-height:none}.cb-fab{left:14px;bottom:14px;width:48px;height:48px;padding:0;justify-content:center;gap:0}.cb-fab .cb-t{display:none}.cb-fab .cb-ic{display:block}.cb-fab .dot{position:absolute;top:3px;right:3px;border:2px solid #fff;width:12px;height:12px;box-sizing:border-box}.wa{width:48px!important;height:48px!important;right:14px!important;bottom:14px!important}}
 </style>
-<button class="cb-fab" id="cb-fab" aria-label="Chat with CodeCurrent assistant"><span class="dot"></span>Chat with us</button>
+<button class="cb-fab" id="cb-fab" aria-label="Chat with CodeCurrent assistant"><span class="dot"></span><span class="cb-t">Chat with us</span><svg class="cb-ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 11h6M9 14h4"/></svg></button>
 <div class="cb-panel" id="cb-panel" role="dialog" aria-label="CodeCurrent chat assistant">
   <div class="cb-head"><div class="cb-av">CC</div><div><b>CodeCurrent Assistant</b><small>● Online · replies instantly</small></div><button class="cb-x" id="cb-x" aria-label="Close chat">×</button></div>
   <div class="cb-body" id="cb-body" aria-live="polite"></div>
