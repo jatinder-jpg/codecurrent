@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdeef6"/><stop offset="1" stop-color="#d9d4fb"/></linearGradient>
+<linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a4dff"/><stop offset="1" stop-color="#19c7d8"/></linearGradient></defs>
+<rect width="640" height="480" rx="24" fill="url(#bg)"/>
+<circle cx="560" cy="90" r="70" fill="#ff7ad9" fill-opacity=".18"/>
+<!-- wall display -->
+<rect x="130" y="50" width="380" height="226" rx="12" fill="#10152e"/><rect x="142" y="62" width="356" height="202" rx="4" fill="url(#scr)"/>
+<circle cx="320" cy="163" r="42" fill="#fff" fill-opacity=".92"/><path d="M308 142l36 21-36 21z" fill="#7a4dff"/>
+<g fill="#fff" fill-opacity=".55"><rect x="160" y="236" width="150" height="8" rx="4"/><rect x="160" y="250" width="90" height="6" rx="3"/></g>
+<g stroke="#fff" stroke-opacity=".7" stroke-width="5" stroke-linecap="round"><path d="M410 242v14M424 232v24M438 238v18M452 226v30M466 236v20"/></g>
+<rect x="296" y="276" width="48" height="26" fill="#2a3150"/><rect x="250" y="300" width="140" height="10" rx="5" fill="#2a3150"/>
+<!-- speakers -->
+<g><rect x="30" y="170" width="70" height="150" rx="12" fill="#1c2347"/><circle cx="65" cy="215" r="14" fill="#33407a"/><circle cx="65" cy="270" r="26" fill="#33407a"/><circle cx="65" cy="270" r="14" fill="#10152e"/><circle cx="65" cy="215" r="6" fill="#10152e"/></g>
+<g><rect x="540" y="170" width="70" height="150" rx="12" fill="#1c2347"/><circle cx="575" cy="215" r="14" fill="#33407a"/><circle cx="575" cy="270" r="26" fill="#33407a"/><circle cx="575" cy="270" r="14" fill="#10152e"/><circle cx="575" cy="215" r="6" fill="#10152e"/></g>
+<g fill="none" stroke="#7a4dff" stroke-width="4" stroke-linecap="round" stroke-opacity=".6"><path d="M112 225a24 24 0 0 1 0 40M122 213a40 40 0 0 1 0 64"/><path d="M528 225a24 24 0 0 0 0 40M518 213a40 40 0 0 0 0 64"/></g>
+<!-- rack / amplifier -->
+<rect x="150" y="350" width="340" height="86" rx="12" fill="#1c2347"/>
+<g fill="#33407a"><rect x="166" y="364" width="150" height="26" rx="5"/><rect x="166" y="398" width="150" height="26" rx="5"/></g>
+<g fill="#4ade80"><circle cx="182" cy="377" r="4"/><circle cx="198" cy="377" r="4"/></g>
+<g fill="#ffd84d"><circle cx="182" cy="411" r="4"/></g>
+<g fill="none" stroke="#9aa8d6" stroke-width="3"><circle cx="372" cy="394" r="22"/><circle cx="440" cy="394" r="22"/></g><path d="M372 394l10-12M440 394l-8-14" stroke="#ffd84d" stroke-width="4" stroke-linecap="round"/>
+<!-- projector -->
+<rect x="232" y="6" width="176" height="30" rx="10" fill="#fff" stroke="#c7bfef" stroke-width="2"/><circle cx="270" cy="21" r="9" fill="#10152e"/><circle cx="270" cy="21" r="4" fill="#7a4dff"/><rect x="300" y="14" width="60" height="6" rx="3" fill="#d6d0f5"/>
+</svg>

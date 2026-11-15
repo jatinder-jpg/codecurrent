@@ -191,6 +191,8 @@ footer a:hover{color:#fff}
 .reveal{opacity:0;transform:translateY(24px);transition:.7s}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.biz{display:flex;gap:6px}.biz a{padding:3px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.3);font-weight:600}.biz a.on{background:#fff;color:var(--navy)}.biz a:not(.on):hover{background:rgba(255,255,255,.15);color:#fff}
+.bizlink{color:#c2410c!important;font-weight:700}
 /* ===== Mobile-friendly tuning ===== */
 html{-webkit-text-size-adjust:100%}
 img,svg,video{max-width:100%}
@@ -237,7 +239,7 @@ img,svg,video{max-width:100%}
 <body>
 
 <div class="util"><div class="wrap">
-  <span>Custom software · Mobile apps · Cloud · AI</span>
+  <span class="biz"><a class="on" href="index.html">Software &amp; Apps</a><a href="it-solutions.html">IT Solutions</a></span>
   <span><a href="tel:+917087705767">+91 70877 05767</a> &nbsp;|&nbsp; <a href="mailto:er.jatindersingh00@gmail.com">er.jatindersingh00@gmail.com</a></span>
 </div></div>
 
@@ -245,7 +247,7 @@ img,svg,video{max-width:100%}
   <a href="#top" class="logo">Code<b>Current</b></a>
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
   <div class="links">
-    <a href="#services">Services</a><a href="#estimate">Plan project</a><a href="#demos">Demos</a><a href="#approach">Approach</a><a href="#platforms">Platforms</a><a href="#about">About</a><a href="#faq">FAQ</a>
+    <a href="#services">Services</a><a href="#estimate">Plan project</a><a href="#demos">Demos</a><a href="#approach">Approach</a><a href="#platforms">Platforms</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="it-solutions.html" class="bizlink">IT Solutions →</a>
     <a href="#contact" class="btn p sm">Talk to an expert</a>
   </div>
 </nav></div></header>
@@ -583,7 +585,12 @@ const S={
   intro:'We add chatbots, document processing, smart reports and workflow automation to your business.',
   inc:'Chatbots for WhatsApp/Telegram/web, automated reports, document reading, lead handling and integrations with your tools.',
   time:'Simple automations take 1–3 weeks. Larger AI projects take 4–12 weeks.',
-  steps:['1 · Find tasks worth automating','2 · Build &amp; connect a pilot','3 · Measure the time saved','4 · Roll out to your whole team']}
+  steps:['1 · Find tasks worth automating','2 · Build &amp; connect a pilot','3 · Measure the time saved','4 · Roll out to your whole team']},
+ it:{icon:'🛡️',name:'IT Solutions',img:'images/it/networking.svg',
+  intro:'Our IT Solutions team installs networking, CCTV, audio-video, digital security, automation and conference room systems.',
+  inc:'Structured cabling and Wi-Fi, CCTV cameras, displays and sound systems, access control and attendance, smart-building automation, and video-conferencing rooms, with maintenance plans.',
+  time:'A small CCTV or Wi-Fi job takes a day or two. A full office fit-out takes longer. You get a timeline with the quote.',
+  steps:['1 · Free site survey','2 · Design &amp; itemised quote','3 · Neat installation','4 · Testing, training &amp; support']}
 };
 const PRICE='Every project is different, so every quote is <b>custom</b>. Tell us your idea and our team will send a tailored proposal after a free consultation. There is no obligation.';
 
@@ -605,12 +612,12 @@ function ask(fn){input=fn;$('cb-input').focus()}
 async function menu(first){
   if(first)await say('Hi 👋 I\'m the <b>CodeCurrent assistant</b>. I can answer quick questions and set up a <b>free consultation</b>.');
   await say('What do you need help with?');
-  opts([['🌐 Website',()=>service('web')],['📱 Mobile app',()=>service('app')],['⚙️ Custom software',()=>service('soft')],['🤖 AI &amp; automation',()=>service('ai')],['💬 Talk to a human',human]]);
+  opts([['🌐 Website',()=>service('web')],['📱 Mobile app',()=>service('app')],['⚙️ Custom software',()=>service('soft')],['🤖 AI &amp; automation',()=>service('ai')],['🛡️ IT Solutions (CCTV, networking…)',()=>service('it')],['💬 Talk to a human',human]]);
 }
 async function service(k){
   await say(`${S[k].icon} <b>${S[k].name}</b><br>${S[k].intro}`);
   await say('What would you like to know?',350);
-  opts([['📋 What\'s included?',()=>answer(k,'inc')],['⏱ How long?',()=>answer(k,'time')],['💰 Pricing',()=>answer(k,'price')],['▶ See a demo',()=>demo(k)],['✅ Get a free quote',()=>quote(k)],['← Main menu',()=>menu()]]);
+  opts([['📋 What\'s included?',()=>answer(k,'inc')],['⏱ How long?',()=>answer(k,'time')],['💰 Pricing',()=>answer(k,'price')],['▶ See a demo',()=>demo(k)],['✅ Get a free quote',()=>quote(k)],...(k==='it'?[['🔗 Open IT Solutions page',()=>{location.href='it-solutions.html'}]]:[]),['← Main menu',()=>menu()]]);
 }
 async function answer(k,w){
   await say(w==='price'?PRICE:S[k][w]);
@@ -657,6 +664,7 @@ async function finish(){
 /* ---------- free-typing: map keywords to the same limited answers ---------- */
 function route(t){const s=t.toLowerCase();
   if(/price|cost|how much|rate|quote|budget|charge/.test(s))return async()=>{await say(PRICE);opts([['✅ Get a free quote',()=>quote()],['← Main menu',()=>menu()]])};
+  if(/cctv|camera|network|wi-?fi|audio|video|conference|biometric|access control|hardware|it solution/.test(s))return()=>service('it');
   if(/web|site|store|shop|ecommerce/.test(s))return()=>service('web');
   if(/\bapps?\b|android|\bios\b|mobile/.test(s))return()=>service('app');
   if(/soft|erp|crm|billing|inventory|system/.test(s))return()=>service('soft');

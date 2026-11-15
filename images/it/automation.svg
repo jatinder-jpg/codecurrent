@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6e0"/><stop offset="1" stop-color="#dbe6fb"/></linearGradient></defs>
+<rect width="640" height="480" rx="24" fill="url(#bg)"/>
+<circle cx="90" cy="80" r="60" fill="#ffd84d" fill-opacity=".3"/><circle cx="560" cy="410" r="80" fill="#2f5bff" fill-opacity=".1"/>
+<!-- house -->
+<path d="M110 240L320 70l210 170v190H110z" fill="#fff" stroke="#bcd0ff" stroke-width="3"/>
+<path d="M90 246L320 56l230 190" fill="none" stroke="#2f5bff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- rooms -->
+<g fill="#eef3ff"><rect x="140" y="270" width="170" height="130" rx="6"/><rect x="330" y="270" width="170" height="130" rx="6"/></g>
+<!-- bulb -->
+<g transform="translate(205 285)"><circle cx="0" cy="0" r="26" fill="#ffd84d"/><rect x="-12" y="22" width="24" height="14" rx="4" fill="#9aa8c4"/><g stroke="#ffb400" stroke-width="4" stroke-linecap="round"><path d="M-40 0h-10M40 0h10M0 -40v-10M-28 -28l-7 -7M28 -28l7 -7"/></g></g>
+<!-- thermostat -->
+<g transform="translate(415 330)"><circle r="42" fill="#fff" stroke="#bcd0ff" stroke-width="3"/><circle r="30" fill="#13305a"/><text y="8" text-anchor="middle" font-family="Arial" font-weight="700" font-size="22" fill="#fff">24°</text><path d="M-30 20a38 38 0 0 0 60 0" fill="none" stroke="#19c7d8" stroke-width="5" stroke-linecap="round"/></g>
+<!-- switch panel -->
+<g transform="translate(172 345)"><rect width="76" height="38" rx="8" fill="#13305a"/><rect x="8" y="9" width="28" height="20" rx="5" fill="#2f5bff"/><rect x="40" y="9" width="28" height="20" rx="5" fill="#33477a"/></g>
+<!-- wifi + app phone -->
+<g fill="none" stroke="#19c7d8" stroke-width="5" stroke-linecap="round"><path d="M284 150a50 50 0 0 1 72 0"/><path d="M298 166a30 30 0 0 1 44 0"/></g><circle cx="320" cy="180" r="6" fill="#19c7d8"/>
+<g transform="translate(548 120)"><rect width="70" height="116" rx="12" fill="#0b1f3a"/><rect x="5" y="9" width="60" height="98" rx="8" fill="#fff"/><circle cx="35" cy="34" r="14" fill="#ffd84d"/><rect x="14" y="58" width="42" height="12" rx="6" fill="#2f5bff"/><rect x="14" y="78" width="42" height="12" rx="6" fill="#c5d3f0"/></g>
+<g stroke="#2f5bff" stroke-opacity=".5" stroke-width="3" stroke-dasharray="6 7" fill="none"><path d="M540 170H380"/></g>
+<!-- gear -->
+<g transform="translate(70 380)" fill="#2f5bff" fill-opacity=".85"><circle r="22"/><g stroke="#2f5bff" stroke-opacity=".85" stroke-width="10" stroke-linecap="round"><path d="M0 -30v-8M0 30v8M-30 0h-8M30 0h8M-21 -21l-6 -6M21 21l6 6M-21 21l-6 6M21 -21l6 -6"/></g><circle r="9" fill="#fff6e0"/></g>
+</svg>

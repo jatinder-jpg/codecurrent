@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ff9a4a" stroke-opacity=".08"/></pattern>
+<radialGradient id="r" cx="80%" cy="25%" r="60%"><stop offset="0" stop-color="#ff7a1a" stop-opacity=".45"/><stop offset="1" stop-color="#ff7a1a" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="700" fill="url(#g)"/>
+<rect width="1200" height="700" fill="url(#r)"/>
+<g fill="none" stroke="#ff8a3d" stroke-opacity=".35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M0 120H180L230 170H420L470 120H640"/>
+<path d="M0 260H110L160 310H300"/>
+<path d="M0 520H200L250 470H380L430 520H600L650 570H820"/>
+<path d="M1200 90H1030L980 140H860L810 90H700"/>
+<path d="M1200 330H1080L1030 380H900"/>
+<path d="M1200 600H1010L960 550H820L770 600H640"/>
+<path d="M600 0V90L640 130V260"/>
+<path d="M880 700V620L920 580"/>
+</g>
+<g fill="#fbbf24" fill-opacity=".85">
+<circle cx="640" cy="120" r="5"/><circle cx="300" cy="310" r="5"/><circle cx="820" cy="570" r="5"/>
+<circle cx="700" cy="90" r="5"/><circle cx="900" cy="380" r="5"/><circle cx="640" cy="260" r="5"/><circle cx="920" cy="580" r="5"/>
+</g>
+<g fill="#ff9a4a" fill-opacity=".6">
+<circle cx="180" cy="120" r="4"/><circle cx="420" cy="170" r="4"/><circle cx="200" cy="520" r="4"/><circle cx="380" cy="470" r="4"/>
+<circle cx="1030" cy="90" r="4"/><circle cx="860" cy="140" r="4"/><circle cx="1010" cy="600" r="4"/><circle cx="960" cy="550" r="4"/>
+</g>
+<g font-family="monospace" font-size="13" fill="#ffb27a" fill-opacity=".28">
+<text x="60" y="60">01001 { build() }</text><text x="900" y="40">&lt;/deploy&gt;</text><text x="80" y="640">git push origin main</text><text x="980" y="670">200 OK</text><text x="420" y="650">npm run build</text>
+</g>
+</svg>

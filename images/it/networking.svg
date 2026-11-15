@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9f0ff"/><stop offset="1" stop-color="#cfe0ff"/></linearGradient></defs>
+<rect width="640" height="480" rx="24" fill="url(#bg)"/>
+<circle cx="560" cy="80" r="70" fill="#2f5bff" fill-opacity=".1"/><circle cx="80" cy="410" r="80" fill="#19c7d8" fill-opacity=".15"/>
+<!-- cloud -->
+<path d="M250 110a34 34 0 0 1 12-66 46 46 0 0 1 86-4 38 38 0 0 1 14 74z" fill="#fff" stroke="#bcd0ff" stroke-width="2"/>
+<!-- links -->
+<g stroke="#2f5bff" stroke-width="3" stroke-opacity=".55" fill="none" stroke-linecap="round">
+<path d="M320 112V170"/><path d="M320 214V250M320 250H140V300M320 250H320V300M320 250H500V300"/>
+<path d="M140 346V380M140 346H90V400M140 346H190V400M320 346V400M500 346V380M500 346H450V400M500 346H550V400"/>
+</g>
+<!-- router -->
+<rect x="250" y="170" width="140" height="44" rx="10" fill="#0b1f3a"/>
+<circle cx="276" cy="192" r="5" fill="#4ade80"/><circle cx="294" cy="192" r="5" fill="#19c7d8"/><circle cx="312" cy="192" r="5" fill="#ffd84d"/>
+<rect x="340" y="186" width="38" height="12" rx="6" fill="#33477a"/>
+<path d="M270 170l-8-24M370 170l8-24" stroke="#0b1f3a" stroke-width="5" stroke-linecap="round"/>
+<!-- switches -->
+<g fill="#13305a"><rect x="80" y="300" width="120" height="46" rx="9"/><rect x="260" y="300" width="120" height="46" rx="9"/><rect x="440" y="300" width="120" height="46" rx="9"/></g>
+<g fill="#4ade80"><circle cx="100" cy="323" r="4"/><circle cx="116" cy="323" r="4"/><circle cx="280" cy="323" r="4"/><circle cx="296" cy="323" r="4"/><circle cx="460" cy="323" r="4"/><circle cx="476" cy="323" r="4"/></g>
+<g fill="#33477a"><rect x="136" y="316" width="50" height="14" rx="4"/><rect x="316" y="316" width="50" height="14" rx="4"/><rect x="496" y="316" width="50" height="14" rx="4"/></g>
+<!-- devices -->
+<g fill="#fff" stroke="#bcd0ff" stroke-width="2">
+<rect x="66" y="400" width="48" height="34" rx="5"/><rect x="166" y="400" width="48" height="34" rx="5"/><rect x="296" y="400" width="48" height="34" rx="5"/><rect x="426" y="400" width="48" height="34" rx="5"/><rect x="526" y="400" width="48" height="34" rx="5"/>
+</g>
+<g fill="#2f5bff" fill-opacity=".7"><rect x="74" y="408" width="32" height="18" rx="2"/><rect x="174" y="408" width="32" height="18" rx="2"/><rect x="304" y="408" width="32" height="18" rx="2"/><rect x="434" y="408" width="32" height="18" rx="2"/><rect x="534" y="408" width="32" height="18" rx="2"/></g>
+<!-- wifi -->
+<g fill="none" stroke="#19c7d8" stroke-width="5" stroke-linecap="round"><path d="M452 120a50 50 0 0 1 72 0"/><path d="M466 136a30 30 0 0 1 44 0"/></g><circle cx="488" cy="150" r="6" fill="#19c7d8"/>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf2ff"/><stop offset="1" stop-color="#d6e4f7"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b48a"/><stop offset="1" stop-color="#b98d62"/></linearGradient></defs>
+<rect width="640" height="480" rx="24" fill="url(#bg)"/>
+<rect x="0" y="0" width="640" height="320" rx="24" fill="#dde8fa"/>
+<!-- big display with video call -->
+<rect x="90" y="44" width="460" height="228" rx="12" fill="#10152e"/><rect x="102" y="56" width="436" height="204" rx="4" fill="#18305f"/>
+<g>
+<rect x="110" y="64" width="140" height="88" rx="4" fill="#20407a"/><circle cx="180" cy="98" r="16" fill="#0b1f3a" fill-opacity=".6"/><rect x="160" y="116" width="40" height="36" rx="10" fill="#0b1f3a" fill-opacity=".6"/>
+<rect x="256" y="64" width="140" height="88" rx="4" fill="#1f4a7a"/><circle cx="326" cy="98" r="16" fill="#0b1f3a" fill-opacity=".6"/><rect x="306" y="116" width="40" height="36" rx="10" fill="#0b1f3a" fill-opacity=".6"/>
+<rect x="402" y="64" width="128" height="88" rx="4" fill="#2a3f86"/><circle cx="466" cy="98" r="16" fill="#0b1f3a" fill-opacity=".6"/><rect x="446" y="116" width="40" height="36" rx="10" fill="#0b1f3a" fill-opacity=".6"/>
+<rect x="110" y="158" width="420" height="94" rx="4" fill="#f4f7fb"/><rect x="124" y="172" width="120" height="10" rx="5" fill="#2f5bff"/>
+<g fill="#2f5bff"><rect x="126" y="208" width="22" height="34" rx="3"/><rect x="156" y="196" width="22" height="46" rx="3" fill="#19c7d8"/><rect x="186" y="204" width="22" height="38" rx="3"/><rect x="216" y="188" width="22" height="54" rx="3" fill="#19c7d8"/></g>
+<rect x="270" y="172" width="240" height="8" rx="4" fill="#c5d3f0"/><rect x="270" y="190" width="200" height="8" rx="4" fill="#c5d3f0"/><rect x="270" y="208" width="220" height="8" rx="4" fill="#c5d3f0"/>
+</g>
+<!-- camera bar -->
+<rect x="262" y="276" width="116" height="16" rx="8" fill="#0b1f3a"/><circle cx="320" cy="284" r="4" fill="#19c7d8"/><circle cx="290" cy="284" r="2.5" fill="#4ade80"/>
+<!-- table -->
+<path d="M70 392Q320 330 570 392Q570 420 320 436Q70 420 70 392Z" fill="url(#wood)"/>
+<path d="M70 392Q320 330 570 392" fill="none" stroke="#e7c9a4" stroke-width="3"/>
+<!-- mics, panel, laptop -->
+<g><ellipse cx="250" cy="388" rx="20" ry="6" fill="#0b1f3a"/><rect x="246" y="376" width="8" height="12" fill="#0b1f3a"/><circle cx="250" cy="374" r="6" fill="#19c7d8"/></g>
+<g><ellipse cx="390" cy="388" rx="20" ry="6" fill="#0b1f3a"/><rect x="386" y="376" width="8" height="12" fill="#0b1f3a"/><circle cx="390" cy="374" r="6" fill="#19c7d8"/></g>
+<g transform="translate(300 372)"><rect width="40" height="26" rx="4" fill="#13305a"/><rect x="5" y="5" width="30" height="16" rx="2" fill="#2f5bff" fill-opacity=".7"/></g>
+<!-- chairs -->
+<g fill="#13305a"><rect x="110" y="340" width="56" height="64" rx="18"/><rect x="474" y="340" width="56" height="64" rx="18"/><rect x="200" y="408" width="60" height="56" rx="18"/><rect x="380" y="408" width="60" height="56" rx="18"/></g>
+<!-- booking panel -->
+<g transform="translate(560 120)"><rect width="56" height="80" rx="8" fill="#0b1f3a"/><rect x="5" y="8" width="46" height="46" rx="4" fill="#18305f"/><circle cx="28" cy="31" r="8" fill="#ff5f57"/><rect x="10" y="62" width="36" height="8" rx="4" fill="#33477a"/></g>
+</svg>

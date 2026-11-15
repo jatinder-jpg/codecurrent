@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT Solutions: Networking, CCTV, Audio Video, Security & Automation | CodeCurrent</title>
+<meta name="description" content="CodeCurrent IT Solutions designs, installs and supports networking, CCTV, audio-video, digital security, automation and conference room systems for offices and real estate.">
+<meta name="theme-color" content="#15161b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#15161b;--navy2:#272a33;--blue:#e8590c;--cyan:#fbbf24;--ink:#1c1b19;--muted:#6a645c;--line:#e9e4de;--soft:#f7f5f2;--bg:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:150px;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:auto;padding:0 24px}
+h1,h2,h3{line-height:1.12;letter-spacing:-.025em;font-weight:700}
+.util{background:var(--navy);color:#c9d6ea;font-size:.8rem}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:8px;flex-wrap:wrap}
+.util a:hover{color:#fff}
+header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-size:1.4rem;font-weight:800;letter-spacing:-.04em;color:var(--navy);white-space:nowrap}
+.logo b{color:var(--blue)}.logo small{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-left:6px}
+.links{display:flex;gap:18px;align-items:center;font-size:.86rem;font-weight:500;white-space:nowrap}
+.only-m{display:none}
+.links a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:6px;font-weight:600;font-size:.95rem;border:2px solid transparent;cursor:pointer;font-family:inherit;transition:.2s;min-height:48px}
+.btn.p{background:var(--blue);color:#fff}.btn.p:hover{background:#c2410c;transform:translateY(-2px)}
+.btn.o{border-color:#fff;color:#fff}.btn.o:hover{background:#fff;color:var(--navy)}
+.btn.sm{padding:10px 18px;font-size:.86rem;min-height:42px}
+.burger{display:none;background:none;border:0;font-size:1.8rem;cursor:pointer}
+@media(max-width:1000px){.only-m{display:inline}.links{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;gap:16px;border-bottom:1px solid var(--line);max-height:calc(100vh - 110px);overflow-y:auto}.links.open{display:flex}.burger{display:block}.util .wrap>span:first-child{display:none}.util .wrap{justify-content:center}}
+.hero{background:url(images/it/hero-hardware.svg) center/cover no-repeat,radial-gradient(circle at 85% 20%,#8a3b0b 0,transparent 45%),linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:84px 0 76px}
+.hero .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero .grid{grid-template-columns:1fr}.hero{padding:52px 0}}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;color:var(--cyan);margin-bottom:16px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.7rem);margin-bottom:20px}
+.hero p{color:#c3d1e8;font-size:1.07rem;max-width:560px;margin-bottom:30px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:560px){.cta{flex-direction:column}.cta .btn{width:100%}}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:18px 12px;text-align:center;transition:.2s;backdrop-filter:blur(6px)}
+.tile:hover{background:rgba(255,255,255,.14);transform:translateY(-4px)}
+.tile i{font-style:normal;font-size:1.9rem;display:block;margin-bottom:6px}
+.tile b{font-size:.86rem;font-weight:600}
+.jump{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:70px;z-index:30}
+.jump .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;white-space:nowrap;padding-block:12px;font-size:.88rem}
+.jump span{color:var(--muted);margin-right:10px;font-weight:600}
+.jump a{padding:6px 14px;border-radius:99px;border:1px solid var(--line);font-weight:500}
+.jump a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(max-width:1000px){.jump{position:static}html{scroll-padding-top:84px}}
+section{padding:84px 0}
+.alt{background:var(--soft)}
+.label{font-size:.78rem;font-weight:700;letter-spacing:.14em;color:var(--blue);margin-bottom:12px;display:block;text-transform:uppercase}
+.head{max-width:760px;margin-bottom:46px}
+.head h2{font-size:clamp(1.8rem,3.6vw,2.7rem);margin-bottom:14px}
+.head p{color:var(--muted);font-size:1.04rem}
+.grid3{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px;transition:.25s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--blue);box-shadow:0 20px 40px -22px rgba(232,89,12,.45);transform:translateY(-5px)}
+.ic{width:52px;height:52px;border-radius:12px;background:#fff1e6;display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem;flex:1}
+.card a.more{margin-top:16px;color:var(--blue);font-weight:600;font-size:.9rem}
+.card a.more:after{content:" →"}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split.rev>.pic{order:2}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:28px}.split.rev>.pic{order:0}}
+.pic img{filter:hue-rotate(168deg) saturate(1.08);width:100%;height:auto;border-radius:20px;box-shadow:0 30px 60px -30px rgba(11,31,58,.5)}
+.num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;margin-bottom:14px}
+.split h2{font-size:clamp(1.7rem,3.2vw,2.4rem);margin-bottom:12px}
+.split .lead{color:var(--muted);font-size:1.03rem;margin-bottom:6px}
+.ticks{list-style:none;padding:0;margin:16px 0}
+.ticks li{padding:7px 0 7px 32px;position:relative;color:var(--ink);font-size:.97rem}
+.ticks li:before{content:"✓";position:absolute;left:0;top:8px;width:21px;height:21px;border-radius:50%;background:var(--blue);color:#fff;font-size:.75rem;display:grid;place-items:center}
+.ideal{background:#fff;border:1px solid var(--line);border-left:4px solid var(--cyan);border-radius:8px;padding:12px 16px;font-size:.9rem;color:var(--muted);margin-bottom:22px}
+.ideal b{color:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;counter-reset:s}
+.step{padding:26px;border-left:1px solid var(--line)}
+.step:first-child{border-left:0}
+.step:before{counter-increment:s;content:"0" counter(s);font-size:2.1rem;font-weight:800;color:var(--blue);display:block;margin-bottom:6px}
+.step h3{font-size:1.1rem;margin-bottom:6px}.step p{color:var(--muted);font-size:.92rem}
+@media(max-width:700px){.step{border-left:0;border-top:1px solid var(--line)}}
+.band{background:var(--navy);color:#fff}
+.band .head p{color:#a9bad6}.band .label{color:var(--cyan)}
+.why{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.why div{border-top:3px solid var(--cyan);padding-top:18px}
+.why h3{font-size:1.15rem;margin-bottom:8px}.why p{color:#b6c6e0;font-size:.95rem}
+details{border-bottom:1px solid var(--line);padding:20px 0;max-width:900px}
+summary{cursor:pointer;font-size:1.08rem;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--blue);font-size:1.6rem;line-height:1}
+details[open] summary:after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:760px}
+.contact{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:860px){.cg{grid-template-columns:1fr;gap:34px}}
+.contact h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:16px}
+.contact p{color:#c3d1e8}
+.info{display:grid;gap:14px;margin-top:28px}
+.info a{display:block;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.2);overflow-wrap:anywhere}
+.info small{display:block;color:#9fb3d3}
+form{display:grid;gap:14px;background:#fff;color:var(--ink);padding:28px;border-radius:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.two{grid-template-columns:1fr}form{padding:22px}}
+input,select,textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus{outline:3px solid #fcd5b0;border-color:var(--blue)}
+.hp{position:absolute;left:-9999px}
+.ok{text-align:center;padding:18px}.ok h3{font-size:1.5rem;margin-bottom:10px}.ok p{color:var(--muted);margin-bottom:18px}
+footer{background:#071529;color:#8da2c4;padding:32px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer a:hover{color:#fff}
+.wa{position:fixed;right:20px;bottom:20px;z-index:50;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;box-shadow:0 12px 28px -8px rgba(0,0,0,.45)}
+@media(max-width:700px){.wa{width:48px;height:48px;right:14px;bottom:14px}section{padding:56px 0}.wrap{padding:0 18px}}
+.biz{display:flex;gap:6px}.biz a{padding:3px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.3);font-weight:600}.biz a.on{background:#fff;color:var(--navy)}.biz a:not(.on):hover{background:rgba(255,255,255,.15);color:#fff}
+.preview-note{position:fixed;left:0;right:0;bottom:0;background:#ff6b35;color:#fff;font-weight:700;text-align:center;padding:6px;font-size:.78rem;z-index:99}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="wrap">
+  <span class="biz"><a href="index.html">Software &amp; Apps</a><a class="on" href="it-solutions.html">IT Solutions</a></span>
+  <span><a href="tel:+917087705767">+91 70877 05767</a> &nbsp;|&nbsp; <a href="mailto:er.jatindersingh00@gmail.com">er.jatindersingh00@gmail.com</a></span>
+</div></div>
+
+<header><div class="wrap"><nav>
+  <a href="#top" class="logo">Code<b>Current</b><small>IT Solutions</small></a>
+  <button class="burger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+  <div class="links">
+    <a href="index.html" class="only-m" style="color:var(--blue);font-weight:700">← Software &amp; Apps</a><a href="#networking">Networking</a><a href="#cctv">CCTV</a><a href="#audio-video">Audio Video</a><a href="#security">Security</a><a href="#automation">Automation</a><a href="#conference">Conference Rooms</a>
+    <a href="#contact" class="btn p sm">Free site survey</a>
+  </div>
+</nav></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid">
+  <div>
+    <span class="eyebrow">IT SOLUTIONS</span>
+    <h1>Smart IT infrastructure for offices and buildings</h1>
+    <p>Networking, CCTV, audio-video, digital security, automation and conference rooms: planned, installed and supported by one team, so everything works together from day one.</p>
+    <div class="cta"><a href="#contact" class="btn p">Get a free site survey</a><a href="#solutions" class="btn o">Explore solutions</a></div>
+  </div>
+  <div class="tiles" aria-label="Our solutions">
+    <a class="tile" href="#networking"><i>🌐</i><b>Networking</b></a>
+    <a class="tile" href="#cctv"><i>📹</i><b>CCTV</b></a>
+    <a class="tile" href="#audio-video"><i>🔊</i><b>Audio Video</b></a>
+    <a class="tile" href="#security"><i>🔐</i><b>Digital Security</b></a>
+    <a class="tile" href="#automation"><i>💡</i><b>Automation</b></a>
+    <a class="tile" href="#conference"><i>🖥️</i><b>Conference Rooms</b></a>
+  </div>
+</div></section>
+
+<div class="jump"><div class="wrap"><span>Jump to…</span><a href="#solutions">Overview</a><a href="#networking">Networking</a><a href="#cctv">CCTV</a><a href="#audio-video">Audio Video</a><a href="#security">Security</a><a href="#automation">Automation</a><a href="#conference">Conference Rooms</a><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></div>
+
+<section id="solutions"><div class="wrap">
+  <div class="head reveal"><span class="label">What we do</span><h2>Six solutions, one accountable partner</h2><p>Whether you are fitting out a new office, upgrading an existing building or setting up a conference room, we handle the planning, installation and support.</p></div>
+  <div class="grid3">
+    <div class="card reveal"><div class="ic">🌐</div><h3>Networking</h3><p>Structured cabling, LAN and Wi-Fi, switches, routers and firewalls for a fast, secure network.</p><a href="#networking" class="more">See details</a></div>
+    <div class="card reveal"><div class="ic">📹</div><h3>CCTV</h3><p>HD and IP camera systems with night vision, recording and viewing from your phone.</p><a href="#cctv" class="more">See details</a></div>
+    <div class="card reveal"><div class="ic">🔊</div><h3>Audio Video solutions</h3><p>Displays, video walls, projectors and sound systems for offices, showrooms and auditoriums.</p><a href="#audio-video" class="more">See details</a></div>
+    <div class="card reveal"><div class="ic">🔐</div><h3>Digital security systems</h3><p>Access control, biometric and face-recognition attendance, alarms and visitor management.</p><a href="#security" class="more">See details</a></div>
+    <div class="card reveal"><div class="ic">💡</div><h3>Automation</h3><p>Smart lighting, climate control and building automation you manage from a phone or panel.</p><a href="#automation" class="more">See details</a></div>
+    <div class="card reveal"><div class="ic">🖥️</div><h3>Conference room solutions</h3><p>Video conferencing, wireless presentation, microphones and room booking for meeting rooms.</p><a href="#conference" class="more">See details</a></div>
+  </div>
+</div></section>
+
+<section id="networking" class="alt"><div class="wrap split">
+  <div class="pic reveal"><img src="images/it/networking.svg" alt="Network diagram with router, switches and connected devices" loading="lazy" width="640" height="480"></div>
+  <div class="reveal">
+    <span class="num">1</span>
+    <h2>Networking</h2>
+    <p class="lead">A reliable network is the base of every other system in the building. We design it for speed, coverage and security.</p>
+    <ul class="ticks">
+      <li>Structured cabling: Cat6 copper and fibre, racks and patch panels</li>
+      <li>LAN design with switches and routers, plus VLANs for different teams</li>
+      <li>Wi-Fi survey and access-point placement for full coverage</li>
+      <li>Firewalls, VPN and secure remote access</li>
+      <li>Server rooms, UPS and power backup planning</li>
+      <li>Network monitoring and annual maintenance plans</li>
+    </ul>
+    <div class="ideal"><b>Ideal for:</b> new offices, co-working spaces, showrooms, schools, clinics and multi-floor buildings.</div>
+    <a href="#contact" class="btn p">Ask about networking</a>
+  </div>
+</div></section>
+
+<section id="cctv"><div class="wrap split rev">
+  <div class="pic reveal"><img src="images/it/cctv.svg" alt="CCTV cameras, monitor and recorder" loading="lazy" width="640" height="480"></div>
+  <div class="reveal">
+    <span class="num">2</span>
+    <h2>CCTV surveillance</h2>
+    <p class="lead">Clear video, reliable recording and easy access, so you always know what is happening at your premises.</p>
+    <ul class="ticks">
+      <li>HD and IP cameras: dome, bullet and PTZ, indoor and outdoor</li>
+      <li>Night vision and wide coverage planning</li>
+      <li>NVR / DVR recording with the storage period you need</li>
+      <li>Live view and playback on your phone and computer</li>
+      <li>Central monitoring for multiple floors or sites</li>
+      <li>Regular health checks and maintenance support</li>
+    </ul>
+    <div class="ideal"><b>Ideal for:</b> offices, shops, apartments and societies, warehouses, schools and construction sites.</div>
+    <a href="#contact" class="btn p">Ask about CCTV</a>
+  </div>
+</div></section>
+
+<section id="audio-video" class="alt"><div class="wrap split">
+  <div class="pic reveal"><img src="images/it/audio-video.svg" alt="Wall display, speakers and audio rack" loading="lazy" width="640" height="480"></div>
+  <div class="reveal">
+    <span class="num">3</span>
+    <h2>Audio Video solutions</h2>
+    <p class="lead">Sharp screens and clear sound for presentations, reception areas, showrooms and large halls.</p>
+    <ul class="ticks">
+      <li>Commercial displays, LED screens and video walls</li>
+      <li>Projectors and screens for meeting and training rooms</li>
+      <li>Ceiling and wall speakers, PA and background music</li>
+      <li>Digital signage for reception, retail and showrooms</li>
+      <li>Auditorium and banquet sound, mixers and microphones</li>
+      <li>Neat cabling, control and operator training</li>
+    </ul>
+    <div class="ideal"><b>Ideal for:</b> corporate offices, sales galleries, clubhouses, banquet halls, schools and training centres.</div>
+    <a href="#contact" class="btn p">Ask about audio video</a>
+  </div>
+</div></section>
+
+<section id="security"><div class="wrap split rev">
+  <div class="pic reveal"><img src="images/it/security.svg" alt="Access control keypad, shield and fingerprint card" loading="lazy" width="640" height="480"></div>
+  <div class="reveal">
+    <span class="num">4</span>
+    <h2>Digital security systems</h2>
+    <p class="lead">Control who enters, keep a record of every entry and protect people and property around the clock.</p>
+    <ul class="ticks">
+      <li>Access control with cards, PIN, fingerprint or face recognition</li>
+      <li>Time and attendance linked to the door system</li>
+      <li>Visitor management and boom barriers for parking</li>
+      <li>Intrusion alarms and panic buttons</li>
+      <li>Electronic door locks and video door phones</li>
+      <li>Integration with CCTV and your software</li>
+    </ul>
+    <div class="ideal"><b>Ideal for:</b> offices, residential towers, labs, server rooms, factories and commercial complexes.</div>
+    <a href="#contact" class="btn p">Ask about security</a>
+  </div>
+</div></section>
+
+<section id="automation" class="alt"><div class="wrap split">
+  <div class="pic reveal"><img src="images/it/automation.svg" alt="Smart building with lighting and climate control" loading="lazy" width="640" height="480"></div>
+  <div class="reveal">
+    <span class="num">5</span>
+    <h2>Automation</h2>
+    <p class="lead">Make buildings smarter and cheaper to run, with lights, climate and devices that work to your schedule.</p>
+    <ul class="ticks">
+      <li>Smart lighting, switches and scenes</li>
+      <li>Air-conditioning and climate control schedules</li>
+      <li>Control from a mobile app, wall panel or voice</li>
+      <li>Sensors for occupancy, temperature and energy use</li>
+      <li>Curtain, gate and shutter control</li>
+      <li>Reports that help you save electricity</li>
+    </ul>
+    <div class="ideal"><b>Ideal for:</b> new offices, premium apartments, villas, hotels, showrooms and corporate campuses.</div>
+    <a href="#contact" class="btn p">Ask about automation</a>
+  </div>
+</div></section>
+
+<section id="conference"><div class="wrap split rev">
+  <div class="pic reveal"><img src="images/it/conference.svg" alt="Conference room with video wall, camera and microphones" loading="lazy" width="640" height="480"></div>
+  <div class="reveal">
+    <span class="num">6</span>
+    <h2>Conference room solutions</h2>
+    <p class="lead">Meeting rooms where everyone can see, hear and share easily, whether they are in the room or joining remotely.</p>
+    <ul class="ticks">
+      <li>Video conferencing with camera, microphones and speakers</li>
+      <li>Large displays or projectors with wireless presentation</li>
+      <li>Works with Zoom, Microsoft Teams and Google Meet</li>
+      <li>One-touch control panel for simple use</li>
+      <li>Room booking panels outside each room</li>
+      <li>Acoustic advice for clear, echo-free sound</li>
+    </ul>
+    <div class="ideal"><b>Ideal for:</b> boardrooms, training rooms, co-working spaces, hotels and corporate offices.</div>
+    <a href="#contact" class="btn p">Ask about conference rooms</a>
+  </div>
+</div></section>
+
+<section id="process" class="alt"><div class="wrap">
+  <div class="head reveal"><span class="label">How we work</span><h2>From site survey to support</h2></div>
+  <div class="steps reveal">
+    <div class="step"><h3>Site survey</h3><p>We visit, measure and understand how you use the space.</p></div>
+    <div class="step"><h3>Design &amp; quote</h3><p>A clear plan, equipment list and itemised quote.</p></div>
+    <div class="step"><h3>Installation</h3><p>Neat, labelled installation with minimal disturbance.</p></div>
+    <div class="step"><h3>Testing &amp; training</h3><p>We test everything and train your team to use it.</p></div>
+    <div class="step"><h3>Support</h3><p>Maintenance plans and quick help when you need it.</p></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="head reveal"><span class="label">Why CodeCurrent</span><h2>One team for all your IT systems</h2></div>
+  <div class="why reveal">
+    <div><h3>Everything works together</h3><p>Network, cameras, access control and automation are planned as one system, not separate boxes.</p></div>
+    <div><h3>Software expertise</h3><p>As a software company, we can connect your systems to custom dashboards and apps.</p></div>
+    <div><h3>Honest advice</h3><p>We recommend equipment that fits your needs and budget, and explain every cost.</p></div>
+    <div><h3>Support after installation</h3><p>Maintenance plans and responsive help keep your systems running.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="head reveal"><span class="label">FAQ</span><h2>Common questions</h2></div>
+  <details><summary>Do you offer a free site survey?</summary><p>Yes. We visit your location, discuss your needs and then send a detailed quote. There is no obligation.</p></details>
+  <details><summary>Can you combine several solutions in one project?</summary><p>Yes. Many clients combine networking, CCTV and access control in one project, which saves cost and cabling.</p></details>
+  <details><summary>How long does an installation take?</summary><p>A small CCTV or Wi-Fi job can take a day or two. A full office fit-out takes longer. You get a timeline in the quote.</p></details>
+  <details><summary>Do you provide maintenance after installation?</summary><p>Yes. We offer annual maintenance plans and support for all the systems we install.</p></details>
+  <details><summary>Can the systems connect to our software?</summary><p>Yes. We also build custom software, so we can link attendance, access and monitoring to your own dashboards.</p></details>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap cg">
+  <div>
+    <span class="label" style="color:var(--cyan)">Contact us</span>
+    <h2>Book your free site survey</h2>
+    <p>Tell us what you need. We reply within 24 hours with the next steps.</p>
+    <div class="info">
+      <a href="tel:+917087705767"><small>Call</small>+91 70877 05767</a>
+      <a href="https://wa.me/917087705767" target="_blank" rel="noopener"><small>WhatsApp</small>+91 70877 05767</a>
+      <a href="mailto:er.jatindersingh00@gmail.com"><small>Email</small>er.jatindersingh00@gmail.com</a>
+    </div>
+  </div>
+  <form id="f" data-source="it-solutions-page">
+    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="two"><input name="name" placeholder="Your name" required><input name="phone" placeholder="Phone / WhatsApp" required inputmode="tel"></div>
+    <div class="two"><input name="email" type="email" placeholder="Email (optional)"><select name="type"><option>Networking</option><option>CCTV</option><option>Audio Video</option><option>Digital security systems</option><option>Automation</option><option>Conference room</option><option>More than one solution</option></select></div>
+    <textarea name="msg" rows="4" placeholder="Tell us about your site: location, size, what you need…" required></textarea>
+    <button class="btn p" type="submit">Request a free site survey</button>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="y"></span> CodeCurrent IT Solutions. All rights reserved.</span>
+  <span><a href="index.html">Software &amp; Apps</a> · <a href="mailto:er.jatindersingh00@gmail.com">er.jatindersingh00@gmail.com</a> · <a href="tel:+917087705767">+91 70877 05767</a></span>
+</div></footer>
+<a class="wa" href="https://wa.me/917087705767" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">💬</a>
+<div class="preview-note" id="pv" hidden>PREVIEW: this page is not live. Forms do not send anything while previewing.</div>
+
+<script>
+try{history.scrollRestoration='manual'}catch(e){}
+if(!location.hash){window.scrollTo(0,0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('y').textContent=new Date().getFullYear();
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('open')));
+const PREVIEW=['localhost','127.0.0.1'].includes(location.hostname)&&!/[?&]live=1/.test(location.search);
+if(PREVIEW)document.getElementById('pv').hidden=false;
+const WEB3FORMS_KEY='705a5f25-1fce-4a27-9b6f-5abe19a2ffa0';
+const NOTIFY_URL='https://codecurrent-bot.er-jatindersingh00.workers.dev';   // Telegram alerts
+const esc=s=>String(s).replace(/[<>&"]/g,'');
+document.getElementById('f').onsubmit=async e=>{
+  e.preventDefault();const f=e.target;const d=Object.fromEntries(new FormData(f));
+  if(d.website)return;
+  d.source=f.dataset.source;d.page=location.href;d.time=new Date().toISOString();
+  let sent=false;
+  if(PREVIEW){sent=true;console.log('[PREVIEW] would send lead:',d)}
+  else{
+    try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,access_key:WEB3FORMS_KEY,subject:'New CodeCurrent IT Solutions lead: '+d.type,from_name:'CodeCurrent IT Solutions page'})});sent=r.ok}catch(_){}
+    try{await fetch(NOTIFY_URL+'/lead',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({...d,text:''})})}catch(_){}
+  }
+  const wa=`https://wa.me/917087705767?text=${encodeURIComponent('Hi CodeCurrent, I am '+d.name+'. I need: '+d.type+'. '+d.msg)}`;
+  f.innerHTML=`<div class="ok"><h3>Thank you, ${esc(d.name)}!</h3><p>We'll contact you within 24 hours to arrange your free site survey. For a faster reply, message us on WhatsApp.</p><a class="btn p" target="_blank" rel="noopener" href="${wa}">Chat on WhatsApp</a></div>`;
+  if(!sent)location.href=`mailto:er.jatindersingh00@gmail.com?subject=${encodeURIComponent('New lead: '+d.type)}&body=${encodeURIComponent(Object.entries(d).filter(([k])=>k!=='website').map(([k,v])=>k+': '+v).join('\n'))}`;
+};
+</script>
+</body>
+</html>
