@@ -438,20 +438,20 @@ const esc=s=>String(s).replace(/[<>&"]/g,'');
 /* Demo videos. Add yours: yt = YouTube video ID (the part after v= in the link),
    or mp4 = file name uploaded next to index.html (keep under ~50 MB). Leave both empty for "coming soon". */
 const DEMOS=[
-  {title:'Company overview',desc:'Who we are and how we build your product.',yt:'',mp4:''},
-  {title:'Business software demo',desc:'Billing, inventory and reports in one dashboard.',yt:'',mp4:''},
-  {title:'Mobile app walkthrough',desc:'A quick tour of a custom mobile app.',yt:'',mp4:''}
+  {title:'Tasks Management App: web view',desc:'Step-by-step tour of the task manager we built for real estate and office teams, on desktop.',yt:'',mp4:'videos/tasks-app-web.mp4',poster:'videos/tasks-app-web.jpg'},
+  {title:'Tasks Management App: mobile view',desc:'The same app on a phone: dashboard, tasks, projects, chat and more.',yt:'',mp4:'videos/tasks-app-mobile.mp4',poster:'videos/tasks-app-mobile.jpg'},
+  {title:'Company overview',desc:'Who we are and how we build your product.',yt:'',mp4:''}
 ];
 document.getElementById('demo-grid').innerHTML=DEMOS.map((v,i)=>{
   const has=v.yt||v.mp4;
-  const bg=v.yt?`<img loading="lazy" alt="" src="https://i.ytimg.com/vi/${esc(v.yt)}/hqdefault.jpg">`:'';
+  const bg=v.yt?`<img loading="lazy" alt="" src="https://i.ytimg.com/vi/${esc(v.yt)}/hqdefault.jpg">`:(v.poster?`<img loading="lazy" alt="" src="${esc(v.poster)}">`:'');
   const box=has?`<div class="vbox" data-i="${i}" role="button" tabindex="0" aria-label="Play ${esc(v.title)}">${bg}<span class="pb">▶</span></div>`
                :`<div class="vbox soon"><div><span class="pb">▶</span>Demo video coming soon</div></div>`;
   return `<div class="vid reveal">${box}<div class="vt"><h3>${esc(v.title)}</h3><p>${esc(v.desc)}</p></div></div>`}).join('');
 document.querySelectorAll('.vbox[data-i]').forEach(b=>{
   const play=()=>{const v=DEMOS[b.dataset.i];
     b.innerHTML=v.yt?`<iframe src="https://www.youtube-nocookie.com/embed/${esc(v.yt)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(v.title)}"></iframe>`
-                    :`<video src="${esc(v.mp4)}" controls autoplay playsinline></video>`};
+                    :`<video src="${esc(v.mp4)}" poster="${esc(v.poster||'')}" controls autoplay playsinline></video>`};
   b.addEventListener('click',play);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}})});
 document.querySelectorAll('#demo-grid .reveal').forEach(el=>io.observe(el));
 
